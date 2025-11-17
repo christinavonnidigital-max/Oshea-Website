@@ -1,5 +1,6 @@
 
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
+import type { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const navLinks = [
@@ -10,10 +11,10 @@ const navLinks = [
   { label: 'Contact', path: '/contact' },
 ];
 
-const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+const Header: FC = () => {
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };

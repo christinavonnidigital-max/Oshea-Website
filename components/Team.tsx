@@ -1,5 +1,5 @@
 
-import React from 'react';
+import type { FC } from 'react';
 
 const teamMembers = [
   {
@@ -19,7 +19,7 @@ const teamMembers = [
   },
 ];
 
-const TeamMemberCard: React.FC<{ name: string; title: string; imageUrl: string }> = ({ name, title, imageUrl }) => (
+const TeamMemberCard: FC<{ name: string; title: string; imageUrl: string }> = ({ name, title, imageUrl }) => (
   <div className="text-center">
     <img
       className="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-lg"
@@ -31,7 +31,7 @@ const TeamMemberCard: React.FC<{ name: string; title: string; imageUrl: string }
   </div>
 );
 
-const Team: React.FC = () => {
+const Team: FC = () => {
   return (
     <section id="team" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

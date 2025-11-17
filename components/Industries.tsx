@@ -1,5 +1,5 @@
 
-import React from 'react';
+import type { FC } from 'react';
 
 const industries = [
   'Manufacturing',
@@ -12,7 +12,7 @@ const industries = [
   'Mining',
 ];
 
-const Industries: React.FC = () => {
+const Industries: FC = () => {
   return (
     <section id="industries" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

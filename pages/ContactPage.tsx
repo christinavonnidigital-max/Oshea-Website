@@ -1,8 +1,8 @@
 
-import React from 'react';
+import type { FC } from 'react';
 import Contact from '../components/Contact';
 
-const ContactPage: React.FC = () => {
+const ContactPage: FC = () => {
   return <Contact />;
 };
 

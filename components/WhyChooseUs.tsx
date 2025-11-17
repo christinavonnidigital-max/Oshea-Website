@@ -1,5 +1,5 @@
 
-import React from 'react';
+import type { FC } from 'react';
 import CheckIcon from './icons/CheckIcon';
 
 const whyChooseUsPoints = [
@@ -10,7 +10,7 @@ const whyChooseUsPoints = [
     { title: "Commitment to Integrity", description: "Impartial, transparent, and ethical practice." }
 ];
 
-const WhyChooseUs: React.FC = () => {
+const WhyChooseUs: FC = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,10 +1,10 @@
 
-import React from 'react';
+import type { FC, ReactNode } from 'react';
 import CertificationIcon from './icons/CertificationIcon';
 import InspectionIcon from './icons/InspectionIcon';
 import TrainingIcon from './icons/TrainingIcon';
 
-const ServiceCard: React.FC<{ title: string; description: string; icon: React.ReactNode }> = ({ title, description, icon }) => (
+const ServiceCard: FC<{ title: string; description: string; icon: ReactNode }> = ({ title, description, icon }) => (
   <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 text-center flex flex-col items-center">
      <div className="flex-shrink-0 flex items-center justify-center h-20 w-20 rounded-full bg-orange-100 mb-6">
         {icon}
@@ -14,7 +14,7 @@ const ServiceCard: React.FC<{ title: string; description: string; icon: React.Re
   </div>
 );
 
-const Services: React.FC = () => {
+const Services: FC = () => {
   const services = [
     {
       title: 'Certification',

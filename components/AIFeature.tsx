@@ -1,5 +1,6 @@
 
-import React, { useState, useCallback, useRef, useEffect } from 'react';
+import * as React from 'react';
+import type { FC, FormEvent } from 'react';
 import { generateContent } from '../services/geminiService';
 import type { GeminiResponse, GroundingChunk } from '../types';
 import ChatIcon from './icons/ChatIcon';
@@ -24,22 +25,22 @@ const brochureContext = `You are a helpful and friendly AI assistant for O'Shea 
 - **Industries Served:** Manufacturing, Construction & Engineering, Food & Beverage, Energy & Utilities, IT, Healthcare, Logistics, and Mining.
 Your tone should be professional, concise, and helpful. When asked about standards not on the list, you can provide general information using your knowledge and web search, but clarify that the user should contact O'Shea SA directly to confirm service availability.`;
 
-const AIFeature: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [prompt, setPrompt] = useState<string>('');
-  const [messages, setMessages] = useState<Message[]>([
+const AIFeature: FC = () => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [prompt, setPrompt] = React.useState<string>('');
+  const [messages, setMessages] = React.useState<Message[]>([
     { sender: 'ai', text: "Hello! How can I help you with ISO standards or O'Shea SA's services today?" }
   ]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const messagesEndRef = React.useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  useEffect(scrollToBottom, [messages]);
+  React.useEffect(scrollToBottom, [messages]);
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
+  const handleSubmit = React.useCallback(async (e: FormEvent) => {
     e.preventDefault();
     if (!prompt.trim() || isLoading) return;
 

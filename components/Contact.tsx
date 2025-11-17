@@ -1,10 +1,10 @@
 
-import React from 'react';
+import type { FC } from 'react';
 import PhoneIcon from './icons/PhoneIcon';
 import EmailIcon from './icons/EmailIcon';
 import WebsiteIcon from './icons/WebsiteIcon';
 
-const Contact: React.FC = () => {
+const Contact: FC = () => {
   return (
     <section id="contact-page" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

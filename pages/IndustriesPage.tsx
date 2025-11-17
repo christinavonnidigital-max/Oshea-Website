@@ -1,8 +1,8 @@
 
-import React from 'react';
+import type { FC } from 'react';
 import Industries from '../components/Industries';
 
-const IndustriesPage: React.FC = () => {
+const IndustriesPage: FC = () => {
   return <Industries />;
 };
 

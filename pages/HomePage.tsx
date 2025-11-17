@@ -1,5 +1,5 @@
 
-import React from 'react';
+import type { FC } from 'react';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import About from '../components/About';
@@ -7,7 +7,7 @@ import Industries from '../components/Industries';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Team from '../components/Team';
 
-const HomePage: React.FC = () => {
+const HomePage: FC = () => {
   return (
     <>
       <Hero />

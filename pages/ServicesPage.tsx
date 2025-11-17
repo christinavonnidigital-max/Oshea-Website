@@ -1,8 +1,8 @@
 
-import React from 'react';
+import type { FC } from 'react';
 import Services from '../components/Services';
 
-const ServicesPage: React.FC = () => {
+const ServicesPage: FC = () => {
   return <Services />;
 };
 

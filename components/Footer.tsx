@@ -1,12 +1,12 @@
 
-import React from 'react';
+import type { FC } from 'react';
 import PhoneIcon from './icons/PhoneIcon';
 import EmailIcon from './icons/EmailIcon';
 import WebsiteIcon from './icons/WebsiteIcon';
 import LinkedInIcon from './icons/LinkedInIcon';
 import TwitterIcon from './icons/TwitterIcon';
 
-const Footer: React.FC = () => {
+const Footer: FC = () => {
   return (
     <footer className="bg-[#0F1A3E] text-white">
       <div className="w-full h-2 bg-gradient-to-r from-yellow-400 to-orange-500"></div>

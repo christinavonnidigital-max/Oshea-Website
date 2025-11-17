@@ -1,8 +1,8 @@
 
-import React from 'react';
+import type { FC } from 'react';
 import Team from '../components/Team';
 
-const TeamPage: React.FC = () => {
+const TeamPage: FC = () => {
   return <Team />;
 };
 
