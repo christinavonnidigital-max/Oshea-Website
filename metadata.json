@@ -1,0 +1,5 @@
+{
+  "name": "O'Shea SA Corporate Website",
+  "description": "A modern corporate website for O'Shea SA, a provider of Management Systems Certification, Inspection, Testing, and Training Services. The site features an AI-powered Q&A section using the Gemini API.",
+  "requestFramePermissions": []
+}
