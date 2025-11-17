@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   return (
@@ -9,12 +10,12 @@ const Hero: React.FC = () => {
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight">O'Shea SA</h1>
           <p className="mt-4 text-xl md:text-2xl text-gray-300">"Your Excellence in Execution."</p>
           <div className="mt-8">
-            <a 
-              href="#contact"
+            <Link 
+              to="/contact"
               className="inline-block px-8 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold rounded-md shadow-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
             >
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>

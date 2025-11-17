@@ -3,13 +3,15 @@ import React from 'react';
 import PhoneIcon from './icons/PhoneIcon';
 import EmailIcon from './icons/EmailIcon';
 import WebsiteIcon from './icons/WebsiteIcon';
+import LinkedInIcon from './icons/LinkedInIcon';
+import TwitterIcon from './icons/TwitterIcon';
 
 const Footer: React.FC = () => {
   return (
-    <footer id="contact" className="bg-[#0F1A3E] text-white">
+    <footer className="bg-[#0F1A3E] text-white">
       <div className="w-full h-2 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
           <div>
             <h3 className="text-2xl font-bold mb-4">O'Shea SA</h3>
             <p className="text-gray-400">Unit RG0-002 Ground Floor<br/>Roland Garros Building<br/>The Campus<br/>57 Sloane Street, Bryanston<br/>South Africa</p>
@@ -27,6 +29,17 @@ const Footer: React.FC = () => {
                 <WebsiteIcon /><span className="ml-2">www.oshea.co.za</span>
               </li>
             </ul>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
+            <div className="flex items-center justify-center md:justify-start space-x-4">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors">
+                    <LinkedInIcon />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors">
+                    <TwitterIcon />
+                </a>
+            </div>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-4">Our Partner</h3>

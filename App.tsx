@@ -1,28 +1,26 @@
 
 import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Industries from './components/Industries';
-import WhyChooseUs from './components/WhyChooseUs';
-import AIFeature from './components/AIFeature';
-import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import IndustriesPage from './pages/IndustriesPage';
+import TeamPage from './pages/TeamPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
-    <div className="bg-white text-gray-800">
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <Industries />
-        <WhyChooseUs />
-        <AIFeature />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="services" element={<ServicesPage />} />
+        <Route path="industries" element={<IndustriesPage />} />
+        <Route path="team" element={<TeamPage />} />
+        <Route path="contact" element={<ContactPage />} />
+      </Route>
+    </Routes>
   );
 }
 
