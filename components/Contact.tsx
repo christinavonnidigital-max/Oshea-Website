@@ -107,7 +107,7 @@ const Contact: React.FC = () => {
                         onChange={handleChange}
                         placeholder="Your Name"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                        className="w-full px-4 py-2 bg-white text-gray-900 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition-colors"
                       />
                     </div>
                     <div>
@@ -120,7 +120,7 @@ const Contact: React.FC = () => {
                         onChange={handleChange}
                         placeholder="Your Email"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                        className="w-full px-4 py-2 bg-white text-gray-900 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition-colors"
                       />
                     </div>
                     <div>
@@ -133,7 +133,7 @@ const Contact: React.FC = () => {
                         onChange={handleChange}
                         placeholder="Your Message"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                        className="w-full px-4 py-2 bg-white text-gray-900 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition-colors"
                       ></textarea>
                     </div>
                     <div className="flex items-start flex-col">

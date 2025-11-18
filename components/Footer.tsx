@@ -49,6 +49,8 @@ const Footer: FC = () => {
              <ul className="space-y-2 text-gray-300">
               <li><Link to="/services" className="hover:text-white transition-colors">All Services</Link></li>
               <li><Link to="/iso-9001" className="hover:text-white transition-colors text-orange-400 font-medium">ISO 9001 Certification</Link></li>
+              <li><Link to="/iso-14001" className="hover:text-white transition-colors text-orange-400 font-medium">ISO 14001 Certification</Link></li>
+              <li><Link to="/iso-45001" className="hover:text-white transition-colors text-orange-400 font-medium">ISO 45001 Certification</Link></li>
               <li><Link to="/fssc-22000" className="hover:text-white transition-colors font-medium">FSSC 22000 Certification</Link></li>
               <li><Link to="/services/certification" className="hover:text-white transition-colors">Certification</Link></li>
               <li><Link to="/services/inspection" className="hover:text-white transition-colors">Inspection</Link></li>

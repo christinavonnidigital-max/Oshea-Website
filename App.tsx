@@ -12,6 +12,8 @@ import CookiePolicyPage from './pages/CookiePolicyPage';
 import CareersPage from './pages/CareersPage';
 import ISO9001Page from './pages/ISO9001Page';
 import FSSC22000Page from './pages/FSSC22000Page';
+import ISO45001Page from './pages/ISO45001Page';
+import ISO14001Page from './pages/ISO14001Page';
 import ResourcesPage from './pages/ResourcesPage';
 import LogisticsPage from './pages/LogisticsPage';
 
@@ -33,6 +35,8 @@ const App = () => {
         <Route path="careers" element={<CareersPage />} />
         <Route path="iso-9001" element={<ISO9001Page />} />
         <Route path="fssc-22000" element={<FSSC22000Page />} />
+        <Route path="iso-45001" element={<ISO45001Page />} />
+        <Route path="iso-14001" element={<ISO14001Page />} />
         {/* Add a catch-all route */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
