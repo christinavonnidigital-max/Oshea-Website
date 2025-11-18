@@ -1,7 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Logo: React.FC = () => {
+interface LogoProps {
+  variant?: 'dark' | 'light'; // 'dark' means dark text (for light bg), 'light' means light text (for dark bg)
+}
+
+const Logo: React.FC<LogoProps> = ({ variant = 'dark' }) => {
+  const textColor = variant === 'light' ? 'text-white' : 'text-[#111827]';
+  const partnerColor = variant === 'light' ? 'text-blue-200' : 'text-[#4B3BFF]';
+  const tuvColor = variant === 'light' ? 'text-white' : 'text-[#0046AD]';
+
   return (
     <NavLink to="/" className="inline-block leading-tight select-none">
       {/* O'Shea gradient text */}
@@ -14,9 +22,9 @@ const Logo: React.FC = () => {
 
       {/* A TÜV NORD Partner line */}
       <div className="mt-1 text-[11px] md:text-xs tracking-[0.18em] uppercase">
-        <span className="text-[#111827]">A </span>
-        <span className="font-extrabold text-[#0046AD]">TÜV&nbsp;NORD</span>
-        <span className="text-[#4B3BFF]"> Partner</span>
+        <span className={textColor}>A </span>
+        <span className={`font-extrabold ${tuvColor}`}>TÜV&nbsp;NORD</span>
+        <span className={partnerColor}> Partner</span>
       </div>
     </NavLink>
   );

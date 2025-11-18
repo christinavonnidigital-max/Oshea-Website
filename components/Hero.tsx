@@ -61,7 +61,8 @@ const Hero: FC = () => {
       {/* Navy band with curved bottom like the brochure */}
       <div className="absolute inset-x-0 top-0 h-[480px] md:h-[520px] bg-[#0F1A3E] rounded-b-[80px] md:rounded-b-[120px]" />
 
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 md:pt-20 md:pb-24">
+      {/* Added extra top padding (pt-32 md:pt-40) to account for the fixed header overlay */}
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:pt-40 md:pb-24">
         <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left – text like the brochure */}
           <div className="text-white md:pr-8">

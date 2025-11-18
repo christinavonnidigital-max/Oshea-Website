@@ -8,6 +8,7 @@ import Team from '../components/Team';
 import Footprint from '../components/Footprint';
 import Accreditations from '../components/Accreditations';
 import WhyOshea from '../components/WhyOshea';
+import CaseStudies from '../components/CaseStudies';
 import Seo from '../components/Seo';
 
 const HomePage: FC = () => {
@@ -41,6 +42,7 @@ const HomePage: FC = () => {
       <Services />
       <Accreditations />
       <Industries />
+      <CaseStudies />
       <Footprint />
       <WhyChooseUs />
       <Team />
