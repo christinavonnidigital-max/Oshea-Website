@@ -1,29 +1,43 @@
-
-import type { FC } from 'react';
+import React from "react";
 
 const industries = [
-  'Manufacturing',
-  'Construction & Engineering',
-  'Food & Beverage',
-  'Energy & Utilities',
-  'Information Technology',
-  'Healthcare & Pharmaceuticals',
-  'Logistics & Supply Chain',
-  'Mining',
+  "Manufacturing",
+  "Construction & Engineering",
+  "Food & Beverage",
+  "Energy & Utilities",
+  "Information Technology",
+  "Healthcare & Pharmaceuticals",
+  "Logistics & Supply Chain",
+  "Mining",
 ];
 
-const Industries: FC = () => {
+const Industries: React.FC = () => {
   return (
-    <section id="industries" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#0F1A3E]">Industries We Serve</h2>
-          <p className="mt-4 text-lg text-gray-600">Partnering with organizations across a diverse range of sectors.</p>
+    <section id="industries" className="py-16">
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0F1A3E]">
+            Industries we serve
+          </h2>
+          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+            Partnering with organisations across a diverse range of sectors in
+            Sub Sahara Africa.
+          </p>
         </div>
-        <div className="max-w-2xl mx-auto space-y-3">
-          {industries.map((industry, index) => (
-            <div key={industry} className="p-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-md shadow">
-              <p className="text-white font-semibold text-lg">{industry}</p>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {industries.map((industry) => (
+            <div
+              key={industry}
+              className="group relative bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-transparent hover:border-[#FFC107]/60"
+            >
+              <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#DC3545]" />
+              <div className="px-5 py-6 flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#0F1A3E]/5 group-hover:bg-[#0F1A3E]/10">
+                  <span className="text-sm">•</span>
+                </div>
+                <p className="font-semibold text-[#0F1A3E]">{industry}</p>
+              </div>
             </div>
           ))}
         </div>

@@ -1,18 +1,14 @@
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { GeminiResponse } from "../types";
 
+const apiKey = process.env.API_KEY;
 let ai: GoogleGenAI | null = null;
-
-// Safely read the API key without crashing in the browser
-let apiKey: string | undefined;
-
-if (typeof process !== "undefined" && process.env) {
-  // FIX: Per guidelines, API key must be obtained exclusively from process.env.API_KEY.
-  apiKey = process.env.API_KEY;
-}
 
 if (apiKey) {
   ai = new GoogleGenAI({ apiKey });
+} else {
+  // This warning will appear in the browser's developer console.
+  console.warn("API_KEY environment variable not set. AI assistant is disabled.");
 }
 
 export async function generateContent(
@@ -20,16 +16,14 @@ export async function generateContent(
   systemInstruction: string
 ): Promise<GeminiResponse> {
   if (!ai) {
-    // No key configured, don't crash the app, just return an error message
     return {
-      text:
-        "Error: AI key is not configured in this environment. The website will still work, but the AI assistant is disabled.",
+      text: "Error: AI key is not configured. The AI assistant is disabled.",
     };
   }
 
-  const modelName = "gemini-flash-lite-latest";
+  const modelName = "gemini-2.5-flash"; // Recommended model for basic Q&A tasks.
 
-  const config: any = {
+  const config = {
     systemInstruction,
     tools: [{ googleSearch: {} }],
   };
@@ -42,10 +36,8 @@ export async function generateContent(
     });
 
     const result: GeminiResponse = {
-      // FIX: Per guidelines, the .text property on GenerateContentResponse should be used to get the text output.
       text: response.text,
-      candidates: response.candidates?.map((c: any) => ({
-        ...c,
+      candidates: response.candidates?.map((c) => ({
         groundingMetadata: c.groundingMetadata,
       })),
     };
@@ -54,8 +46,8 @@ export async function generateContent(
   } catch (error) {
     console.error("Error calling Gemini API:", error);
     if (error instanceof Error) {
-      return { text: `Error: ${error.message}` };
+      return { text: `Sorry, there was an error processing your request: ${error.message}` };
     }
-    return { text: "An unknown error occurred." };
+    return { text: "Error: An unknown error occurred while calling the AI service." };
   }
 }

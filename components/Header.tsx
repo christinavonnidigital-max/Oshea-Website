@@ -1,7 +1,7 @@
-
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import type { FC } from 'react';
 import { NavLink } from 'react-router-dom';
+import Logo from './Logo';
 
 const navLinks = [
   { label: 'About', path: '/about' },
@@ -12,9 +12,9 @@ const navLinks = [
 ];
 
 const Header: FC = () => {
-  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -33,9 +33,9 @@ const Header: FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-             <NavLink to="/" className="text-3xl font-bold text-[#0F1A3E]">O'Shea SA</NavLink>
+             <Logo />
           </div>
-          <nav className="hidden md:block">
+          <nav aria-label="Main navigation" className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navLinks.map((link) => (
                 <NavLink
@@ -44,7 +44,7 @@ const Header: FC = () => {
                   className={({ isActive }) =>
                     `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       isActive ? activeLinkStyle : inactiveLinkStyle
-                    }`
+                    } focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-500`
                   }
                 >
                   {link.label}

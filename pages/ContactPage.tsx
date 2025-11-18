@@ -1,4 +1,3 @@
-
 import type { FC } from 'react';
 import Contact from '../components/Contact';
 

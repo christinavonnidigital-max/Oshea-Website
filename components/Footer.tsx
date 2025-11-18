@@ -1,5 +1,5 @@
-
 import type { FC } from 'react';
+import { Link } from 'react-router-dom';
 import PhoneIcon from './icons/PhoneIcon';
 import EmailIcon from './icons/EmailIcon';
 import WebsiteIcon from './icons/WebsiteIcon';
@@ -20,23 +20,26 @@ const Footer: FC = () => {
             <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-2 text-gray-300">
               <li className="flex items-center justify-center md:justify-start">
-                <PhoneIcon /><span className="ml-2">+27 10 210 7715</span>
+                <PhoneIcon />
+                <a href="tel:+27102107715" className="ml-2 hover:text-white transition-colors">+27 10 210 7715</a>
               </li>
               <li className="flex items-center justify-center md:justify-start">
-                <EmailIcon /><span className="ml-2">info@oshea.co.za</span>
+                <EmailIcon />
+                <a href="mailto:info@oshea.co.za" className="ml-2 hover:text-white transition-colors">info@oshea.co.za</a>
               </li>
                <li className="flex items-center justify-center md:justify-start">
-                <WebsiteIcon /><span className="ml-2">www.oshea.co.za</span>
+                <WebsiteIcon />
+                <a href="http://www.oshea.co.za" target="_blank" rel="noopener noreferrer" className="ml-2 hover:text-white transition-colors">www.oshea.co.za</a>
               </li>
             </ul>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
             <div className="flex items-center justify-center md:justify-start space-x-4">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0F1A3E] focus-visible:ring-white">
                     <LinkedInIcon />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0F1A3E] focus-visible:ring-white">
                     <TwitterIcon />
                 </a>
             </div>
@@ -49,8 +52,14 @@ const Footer: FC = () => {
             </div>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500">
-          <p>&copy; {new Date().getFullYear()} O'Shea SA. All Rights Reserved.</p>
+        <div className="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-x-4 gap-y-2">
+            <span>&copy; {new Date().getFullYear()} O'Shea SA. All Rights Reserved.</span>
+            <span className="hidden sm:inline">|</span>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
