@@ -1,40 +1,16 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
-import type { FC, FormEvent } from 'react';
-import { generateContent } from '../services/geminiService';
-import { GeminiResponse } from '../types';
-
-// Simple icons as components for now, marked as decorative for accessibility.
-const ChatIcon: FC = () => (
-  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z"/>
-  </svg>
-);
-
-const CloseIcon: FC = () => (
-  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/>
-  </svg>
-);
-
-const SendIcon: FC = () => (
-  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-  </svg>
-);
-
-interface Message {
-  text: string;
-  sender: 'user' | 'ai';
-  sources?: { uri: string; title: string; }[];
-}
+import { useState, useRef, useEffect, useCallback, FormEvent } from 'react';
+import type { FC } from 'react';
+import { useAIChat } from '../hooks/useAIChat';
+import ChatIcon from './icons/ChatIcon';
+import CloseIcon from './icons/CloseIcon';
+import SendIcon from './icons/SendIcon';
 
 const AIFeature: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [prompt, setPrompt] = useState('');
-  const [messages, setMessages] = useState<Message[]>([
-    { sender: 'ai', text: "Hello! How can I help you with ISO standards or O'Shea SA's services today?" }
-  ]);
-  const [isLoading, setIsLoading] = useState(false);
+  
+  const systemInstruction = `You are O'Shea AI, an expert assistant for O'Shea SA. Your purpose is to answer questions about the company's services (Certification, Inspection, Training), the industries they serve, and relevant ISO standards. Be helpful, professional, and concise. Your knowledge cutoff is 2024. Use Google Search grounding to provide the most up-to-date information.`;
+  const { messages, isLoading, sendMessage, setMessages } = useAIChat(systemInstruction);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatToggleButtonRef = useRef<HTMLButtonElement>(null);
@@ -44,6 +20,14 @@ const AIFeature: FC = () => {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    if (messages.length === 0 && !isLoading) {
+      setMessages([
+        { sender: 'ai', text: "Hello! How can I help you with ISO standards or O'Shea SA's services today?" }
+      ]);
+    }
+  }, [setMessages, messages.length, isLoading]);
 
   useEffect(() => {
     scrollToBottom();
@@ -92,38 +76,12 @@ const AIFeature: FC = () => {
     }
   }, [isOpen]);
 
-  const handleSubmit = useCallback(async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!prompt.trim() || isLoading) return;
-
-    const userMessage: Message = { text: prompt, sender: 'user' };
-    setMessages(prev => [...prev, userMessage]);
+    sendMessage(prompt);
     setPrompt('');
-    setIsLoading(true);
-
-    try {
-      const systemInstruction = `You are O'Shea AI, an expert assistant for O'Shea SA. Your purpose is to answer questions about the company's services (Certification, Inspection, Training), the industries they serve, and relevant ISO standards. Be helpful, professional, and concise. Your knowledge cutoff is 2024. Use Google Search grounding to provide the most up-to-date information.`;
-      const response: GeminiResponse = await generateContent(prompt, systemInstruction);
-      
-      const aiMessage: Message = {
-        text: response.text,
-        sender: 'ai',
-        sources: response.candidates?.[0]?.groundingMetadata?.groundingChunks
-          ?.map(chunk => chunk.web)
-          .filter((web): web is { uri: string; title: string; } => !!web) ?? []
-      };
-      setMessages(prev => [...prev, aiMessage]);
-    } catch (err) {
-      console.error("Error calling Gemini API in AIFeature:", err);
-      const errorMessage: Message = {
-        text: "Sorry, I couldn't process your request at the moment. Please try again later.",
-        sender: 'ai'
-      };
-      setMessages(prev => [...prev, errorMessage]);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [prompt, isLoading]);
+  };
 
   return (
     <>

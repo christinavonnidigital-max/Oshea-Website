@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
 
 const ServiceCard: FC<{ title: string; description: string; icon: ReactNode; slug: string }> = ({ title, description, icon, slug }) => (
-  <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 text-center flex flex-col items-center">
+  <article className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 text-center flex flex-col items-center h-full w-full">
     <div className="flex-shrink-0 flex items-center justify-center h-20 w-20 rounded-full bg-orange-100 mb-6">
       {icon}
     </div>
@@ -16,7 +16,7 @@ const ServiceCard: FC<{ title: string; description: string; icon: ReactNode; slu
     >
       More Info
     </Link>
-  </div>
+  </article>
 );
 
 const Services: FC = () => {
@@ -27,17 +27,18 @@ const Services: FC = () => {
           <h2 className="text-4xl font-bold text-[#0F1A3E]">Our Services</h2>
           <p className="mt-4 text-lg text-gray-600">Delivering value-driven and internationally recognized services.</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8 items-stretch">
+        <ul className="grid md:grid-cols-3 gap-8 items-stretch">
           {servicesData.map((service) => (
-            <ServiceCard 
-              key={service.title} 
-              title={service.title} 
-              description={service.shortDescription} 
-              icon={service.icon} 
-              slug={service.slug} 
-            />
+            <li key={service.title} className="flex">
+              <ServiceCard 
+                title={service.title} 
+                description={service.shortDescription} 
+                icon={service.icon} 
+                slug={service.slug} 
+              />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

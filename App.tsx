@@ -8,6 +8,7 @@ import IndustriesPage from './pages/IndustriesPage';
 import TeamPage from './pages/TeamPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import CookiePolicyPage from './pages/CookiePolicyPage';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="team" element={<TeamPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="cookie-policy" element={<CookiePolicyPage />} />
         {/* Add a catch-all route */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>

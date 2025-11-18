@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
   // FIX: Replaced process.cwd() with '.' to avoid TypeScript type errors where 'process.cwd' is not defined.
   const env = loadEnv(mode, '.', '');
   return {
-    base: process.env.NODE_ENV === 'production' ? '/Oshea-Website/' : '/',
+    base: './', // Add this line
     server: {
       port: 3000,
       host: '0.0.0.0',

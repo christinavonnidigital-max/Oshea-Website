@@ -1,4 +1,5 @@
 
+
 export interface GroundingChunk {
   web?: {
     uri: string;
@@ -17,4 +18,10 @@ export interface GeminiCandidate {
 export interface GeminiResponse {
   text: string;
   candidates?: GeminiCandidate[];
+}
+
+export interface Message {
+  text: string;
+  sender: 'user' | 'ai';
+  sources?: { uri: string; title: string; }[];
 }

@@ -55,10 +55,16 @@ const Footer: FC = () => {
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-x-4 gap-y-2">
             <span>&copy; {new Date().getFullYear()} O'Shea SA. All Rights Reserved.</span>
-            <span className="hidden sm:inline">|</span>
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
+            <div className="flex items-center gap-x-4">
+              <span className="hidden sm:inline text-gray-600">|</span>
+              <Link to="/privacy-policy" className="hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/cookie-policy" className="hover:text-white transition-colors">
+                Cookie Policy
+              </Link>
+            </div>
           </div>
         </div>
       </div>

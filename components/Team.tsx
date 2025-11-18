@@ -4,20 +4,20 @@ const teamMembers = [
   {
     name: 'Farayi Chipango',
     title: 'Managing Director',
-    imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=75&w=200&auto=format&fit=crop&fm=webp',
-    tagline: 'Leads O\'Shea SA with a focus on trust, quality and long term partnerships.',
+    imageUrl: 'https://images.unsplash.com/photo-1639747280804-dd2d6b3d883e?q=75&w=200&auto=format&fit=crop&fm=webp',
+    bio: 'Farayi is a visionary leader with over 15 years of experience in management systems and certification. He is passionate about helping organizations achieve operational excellence and drives O\'Shea SA\'s mission to be the most trusted partner in the industry.',
   },
   {
     name: 'Isabel Gumpo',
     title: 'Chief Financial Officer',
-    imageUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=75&w=200&auto=format&fit=crop&fm=webp',
-    tagline: 'Keeps the numbers sharp so every project is sustainable and secure.',
+    imageUrl: 'https://images.unsplash.com/photo-1635805737704-5bfd1e62debe?q=75&w=200&auto=format&fit=crop&fm=webp',
+    bio: 'Isabel brings a wealth of financial acumen to the team. With a background in corporate finance and risk management, she ensures the company\'s fiscal health and supports its sustainable growth across Sub Sahara Africa.',
   },
   {
     name: 'Albert Shamu',
     title: 'Certification Administrator',
-    imageUrl: 'https://images.unsplash.com/photo-1557862921-37829c790f19?q=75&w=200&auto=format&fit=crop&fm=webp',
-    tagline: 'Makes sure every certificate and detail is handled with precision.',
+    imageUrl: 'https://images.unsplash.com/photo-1639747280948-94b80a4a4b87?q=75&w=200&auto=format&fit=crop&fm=webp',
+    bio: 'Albert is the backbone of our certification process. His meticulous attention to detail and dedication to client success ensure that every audit and certification is managed seamlessly from start to finish.',
   },
 ];
 
@@ -25,20 +25,20 @@ const TeamMemberCard: FC<{
   name: string;
   title: string;
   imageUrl: string;
-  tagline: string;
-}> = ({ name, title, imageUrl, tagline }) => (
-  <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 px-6 pt-10 pb-8 flex flex-col items-center">
+  bio: string;
+}> = ({ name, title, imageUrl, bio }) => (
+  <article className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 px-6 pt-10 pb-8 flex flex-col items-center h-full">
     {/* Accent bubble behind avatar */}
     <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-24 h-24 rounded-full bg-gradient-to-tr from-[#FFC107] via-[#FD7E14] to-[#DC3545] opacity-80 blur-sm" />
 
     {/* Avatar with gradient ring */}
-    <div className="relative w-24 h-24 mb-4">
+    <div className="relative w-24 h-24 mb-4 flex-shrink-0">
       <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#FFC107] via-[#FD7E14] to-[#DC3545]" />
       <div className="absolute inset-[3px] rounded-full bg-white flex items-center justify-center overflow-hidden">
         <img
           className="w-22 h-22 rounded-full object-cover"
           src={imageUrl}
-          alt={`Portrait of ${name}`}
+          alt={`Professional headshot of ${name}`}
           loading="lazy"
           decoding="async"
         />
@@ -51,10 +51,10 @@ const TeamMemberCard: FC<{
       {title}
     </span>
 
-    <p className="mt-4 text-sm text-gray-600 text-center leading-relaxed">
-      {tagline}
+    <p className="mt-4 text-sm text-gray-600 text-center leading-relaxed flex-grow">
+      {bio}
     </p>
-  </div>
+  </article>
 );
 
 const Team: FC = () => {
@@ -80,16 +80,16 @@ const Team: FC = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-5xl mx-auto">
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-5xl mx-auto">
           {teamMembers.map((member, index) => (
-            <div
+            <li
               key={member.name}
               className={index === 1 ? 'md:translate-y-4' : ''}
             >
               <TeamMemberCard {...member} />
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {/* Subtle note */}
         <p className="mt-10 text-center text-xs text-gray-500">

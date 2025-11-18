@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { type FC, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const heroFood = "https://images.unsplash.com/photo-15793540871-02100de5b49d?q=75&w=600&auto=format&fit=crop&fm=webp";
@@ -29,8 +29,35 @@ const HeroCard: FC<HeroCardProps> = ({ image, label }) => (
 );
 
 const Hero: FC = () => {
+  const heroRef = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Update our state when observer callback fires
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.3, // Start animation when 30% of the hero is visible
+      }
+    );
+
+    const currentElement = heroRef.current;
+
+    if (currentElement) {
+      observer.observe(currentElement);
+    }
+
+    return () => {
+      if (currentElement) {
+        observer.unobserve(currentElement);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative bg-gray-50">
+    <section ref={heroRef} className="relative bg-gray-50">
       {/* Navy band with curved bottom like the brochure */}
       <div className="absolute inset-x-0 top-0 h-[480px] md:h-[520px] bg-[#0F1A3E] rounded-b-[80px] md:rounded-b-[120px]" />
 
@@ -68,7 +95,7 @@ const Hero: FC = () => {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center px-8 py-3 rounded-full bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#DC3545] font-semibold text-[#0F1A3E] shadow-lg hover:scale-105 hover:shadow-xl transition-transform transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
+                className={`inline-flex items-center px-8 py-3 rounded-full bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#DC3545] font-semibold text-[#0F1A3E] shadow-lg hover:scale-105 hover:shadow-xl transition-transform transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white ${isInView ? 'animate-pulse-subtle' : ''}`}
               >
                 Talk to our team
               </Link>
