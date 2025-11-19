@@ -2,29 +2,21 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 interface LogoProps {
-  variant?: 'dark' | 'light'; // 'dark' means dark text (for light bg), 'light' means light text (for dark bg)
+  variant?: 'default' | 'light';
 }
 
-const Logo: React.FC<LogoProps> = ({ variant = 'dark' }) => {
-  const textColor = variant === 'light' ? 'text-white' : 'text-[#111827]';
-  const partnerColor = variant === 'light' ? 'text-blue-200' : 'text-[#4B3BFF]';
-  const tuvColor = variant === 'light' ? 'text-white' : 'text-[#0046AD]';
-
+const Logo: React.FC<LogoProps> = ({ variant = 'default' }) => {
+  const isLight = variant === 'light';
+  
   return (
-    <NavLink to="/" className="inline-block leading-tight select-none">
-      {/* O'Shea gradient text */}
-      <div className="text-3xl md:text-4xl font-semibold tracking-tight bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#FF3B30] bg-clip-text text-transparent">
-        O&apos;Shea
-      </div>
-
-      {/* Thin gradient line */}
-      <div className="mt-1 h-[2px] w-full bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#0046AD]" />
-
-      {/* A TÜV NORD Partner line */}
-      <div className="mt-1 text-[11px] md:text-xs tracking-[0.18em] uppercase">
-        <span className={textColor}>A </span>
-        <span className={`font-extrabold ${tuvColor}`}>TÜV&nbsp;NORD</span>
-        <span className={partnerColor}> Partner</span>
+    <NavLink to="/" className="inline-block leading-tight select-none group">
+      <div className="flex items-center gap-2">
+        <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFC107] to-[#FD7E14]">
+          O&apos;Shea
+        </div>
+        <div className={`text-[10px] md:text-xs border-l pl-2 ml-2 leading-tight ${isLight ? 'text-gray-300 border-gray-600' : 'text-gray-600 border-gray-300'}`}>
+          A <span className={`${isLight ? 'text-white' : 'text-[#0046AD]'} font-bold block md:inline`}>TÜV NORD</span> PARTNER
+        </div>
       </div>
     </NavLink>
   );
