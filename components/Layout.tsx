@@ -1,10 +1,12 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import AIFeature from "./AIFeature";
 import CookieConsent from "./CookieConsent";
 import BackToTop from "./BackToTop";
+
+// Lazy load the AI Feature to improve initial page load performance
+const AIFeature = lazy(() => import("./AIFeature"));
 
 const Layout: React.FC = () => {
   const location = useLocation();
@@ -22,7 +24,11 @@ const Layout: React.FC = () => {
         <Outlet />
       </main>
       <Footer />
-      <AIFeature />
+      
+      <Suspense fallback={null}>
+        <AIFeature />
+      </Suspense>
+      
       <BackToTop />
       <CookieConsent />
     </div>

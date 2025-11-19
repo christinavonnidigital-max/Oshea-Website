@@ -1,3 +1,4 @@
+
 import React, { useState, type FC } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
@@ -96,27 +97,69 @@ const ISO14001Page: FC = () => {
         </div>
       </section>
 
-      {/* Quick Stats */}
-      <section className="py-12 bg-gray-50 border-b border-gray-200">
+      {/* Cost Transparency Section */}
+      <section className="py-12 bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-1">3-5</div>
-              <div className="text-sm text-gray-600">Months to certify</div>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-[#0F1A3E] mb-8 text-center">Investment & Timeline</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Cost */}
+              <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wide mb-2">Typical Investment</p>
+                <p className="text-3xl font-bold text-[#0F1A3E] mb-1">R80k - R150k</p>
+                <p className="text-xs text-gray-500">Includes consultant, audit & cert fees</p>
+              </div>
+              {/* Timeline */}
+              <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wide mb-2">Timeline</p>
+                <p className="text-3xl font-bold text-[#0F1A3E] mb-1">3 - 5 Months</p>
+                <p className="text-xs text-gray-500">From gap analysis to certificate</p>
+              </div>
+              {/* Validity */}
+              <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wide mb-2">Validity</p>
+                <p className="text-3xl font-bold text-[#0F1A3E] mb-1">3 Years</p>
+                <p className="text-xs text-gray-500">With annual surveillance audits</p>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-1">ESG</div>
-              <div className="text-sm text-gray-600">Compliance support</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-1">Lower</div>
-              <div className="text-sm text-gray-600">Energy & waste costs</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-1">Faster</div>
-              <div className="text-sm text-gray-600">With ISO 9001</div>
-            </div>
+             <div className="text-center mt-6">
+                <p className="text-sm text-gray-600">
+                   Need an exact quote for your business size? <Link to="/contact" className="text-orange-600 font-semibold hover:underline">Get a custom proposal →</Link>
+                </p>
+             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Global Recognition */}
+      <section className="py-12 bg-gray-50 border-b border-gray-100">
+        <div className="container mx-auto px-4 lg:px-8">
+            <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-[#0F1A3E] mb-3">Global Recognition</h2>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                    Our ISO 14001 certification services are backed by international accreditation, ensuring your certificate is accepted by government bodies, global corporations, and industry regulators.
+                </p>
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/DAkkS-Logo.svg/320px-DAkkS-Logo.svg.png" 
+                    alt="DAkkS - Deutsche Akkreditierungsstelle" 
+                    className="h-12 md:h-16 object-contain" 
+                    loading="lazy"
+                />
+                <img 
+                    src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/International_Accreditation_Forum_logo.svg/320px-International_Accreditation_Forum_logo.svg.png" 
+                    alt="IAF - International Accreditation Forum" 
+                    className="h-12 md:h-16 object-contain" 
+                    loading="lazy"
+                />
+                <img 
+                    src="https://upload.wikimedia.org/wikipedia/el/thumb/d/d7/ESYD_LOGO.svg/320px-ESYD_LOGO.svg.png" 
+                    alt="ESYD Accreditation" 
+                    className="h-12 md:h-16 object-contain" 
+                    loading="lazy"
+                />
+            </div>
         </div>
       </section>
 

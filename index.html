@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,9 +13,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+      :root {
+        /* Mobile-friendly base size - prevents iOS zoom on inputs */
+        font-size: 16px;
+      }
       body {
         font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        color: #1F2937;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
+      h1, h2, h3, h4, h5, h6 {
+        line-height: 1.2;
+      }
+      
+      /* Improve mobile typography */
+      @media (max-width: 640px) {
+        h1 {
+           font-size: 2rem !important; /* Scale down massive headers for mobile readability */
+        }
+        h2 {
+           font-size: 1.75rem !important;
+        }
+        .container {
+           padding-left: 1.25rem;
+           padding-right: 1.25rem;
+        }
+      }
+      
+      /* Minimum tap target size for accessibility */
+      button, a {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
       @keyframes pulse-subtle {
         0%, 100% {
           transform: scale(1);
@@ -27,6 +60,13 @@
       }
       .animate-pulse-subtle {
         animation: pulse-subtle 2.5s ease-in-out infinite;
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translate3d(0, 20px, 0); }
+        to { opacity: 1; transform: translate3d(0, 0, 0); }
       }
     </style>
 <script type="importmap">

@@ -1,3 +1,4 @@
+
 import React, { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
@@ -71,28 +72,42 @@ const ISO9001Page: FC = () => {
         </div>
       </section>
 
-      {/* Quick Stats */}
-      <section className="py-12 bg-gray-50 border-b border-gray-200">
+      {/* Cost Transparency Section */}
+      <section className="py-12 bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-500 mb-1">3-6</div>
-              <div className="text-sm text-gray-600">Months to certify</div>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-[#0F1A3E] mb-8 text-center">Investment & Timeline</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Cost */}
+              <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wide mb-2">Typical Investment</p>
+                <p className="text-3xl font-bold text-[#0F1A3E] mb-1">R80k - R150k</p>
+                <p className="text-xs text-gray-500">Includes consultant, audit & cert fees</p>
+              </div>
+              {/* Timeline */}
+              <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wide mb-2">Timeline</p>
+                <p className="text-3xl font-bold text-[#0F1A3E] mb-1">3 - 6 Months</p>
+                <p className="text-xs text-gray-500">From gap analysis to certificate</p>
+              </div>
+              {/* Validity */}
+              <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wide mb-2">Validity</p>
+                <p className="text-3xl font-bold text-[#0F1A3E] mb-1">3 Years</p>
+                <p className="text-xs text-gray-500">With annual surveillance audits</p>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-500 mb-1">95%</div>
-              <div className="text-sm text-gray-600">First-time pass rate</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-500 mb-1">Global</div>
-              <div className="text-sm text-gray-600">Recognition via TÜV NORD</div>
-            </div>
+             <div className="text-center mt-6">
+                <p className="text-sm text-gray-600">
+                   Need an exact quote for your business size? <Link to="/contact" className="text-orange-600 font-semibold hover:underline">Get a custom proposal →</Link>
+                </p>
+             </div>
           </div>
         </div>
       </section>
 
       {/* Global Recognition */}
-      <section className="py-12 bg-white border-b border-gray-100">
+      <section className="py-12 bg-gray-50 border-b border-gray-100">
         <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold text-[#0F1A3E] mb-3">Global Recognition</h2>
@@ -424,7 +439,7 @@ const ISO9001Page: FC = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-[#0F1A3E] mb-8 text-center">
@@ -457,7 +472,7 @@ const ISO9001Page: FC = () => {
                   a: "Yes, if you don't maintain the system or fail surveillance audits. Or if you don't pay annual fees. But if you're actually using the system (not just for show), you won't have problems. We provide ongoing support to keep you compliant."
                 }
               ].map((item, idx) => (
-                <div key={idx} className="bg-gray-50 rounded-xl p-6">
+                <div key={idx} className="bg-white rounded-xl p-6">
                   <h3 className="font-bold text-lg text-gray-900 mb-2">{item.q}</h3>
                   <p className="text-gray-700">{item.a}</p>
                 </div>

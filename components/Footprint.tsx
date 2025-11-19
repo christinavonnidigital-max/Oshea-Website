@@ -1,44 +1,34 @@
 import React from "react";
 
-// Using a remote URL for the map image to ensure it loads correctly.
-const africaMapUrl = "https://images.unsplash.com/photo-1601655648216-2fd1076629ec?q=75&w=1200&auto=format&fit=crop&fm=webp";
-
 const Footprint: React.FC = () => {
   return (
-    <section className="py-16">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="rounded-[32px] bg-[#0F1A3E] text-white shadow-xl overflow-hidden grid md:grid-cols-2 gap-0">
+        <div className="rounded-[40px] rounded-br-[120px] bg-[#0F1A3E] text-white shadow-2xl overflow-hidden grid md:grid-cols-2 gap-0 relative">
+          {/* Decorative line */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#DC3545]" />
+
           {/* Text side */}
-          <div className="px-8 py-10 lg:px-10 lg:py-12 flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="px-8 py-12 lg:px-12 lg:py-16 flex flex-col justify-center relative z-10">
+            <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold tracking-wide uppercase mb-6 w-max">
+              Geographic Reach
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Our footprint in Sub Sahara Africa
             </h2>
-            <p className="text-sm md:text-base text-gray-200 mb-4">
+            <p className="text-gray-300 mb-8 leading-relaxed">
               O&apos;Shea SA supports clients across Sub Sahara Africa as a
-              cooperation partner of TÜV NORD CERT GmbH. We work with
-              organisations in manufacturing, construction, food and beverage,
-              energy, IT, healthcare, logistics and mining.
-            </p>
-            <p className="text-xs md:text-sm text-gray-300">
-              Key countries served include South Africa, Namibia, Botswana,
-              Zimbabwe, Zambia, Mozambique, Kenya, Nigeria, Ghana and more.
+              cooperation partner of TÜV NORD CERT GmbH.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-2 text-[11px]">
+            <div className="flex flex-wrap gap-2">
               {[
-                "South Africa",
-                "Namibia",
-                "Botswana",
-                "Zimbabwe",
-                "Zambia",
-                "Mozambique",
-                "Kenya",
-                "Nigeria",
-                "Ghana",
+                "South Africa", "Namibia", "Botswana", "Zimbabwe", 
+                "Zambia", "Mozambique", "Kenya", "Nigeria", "Ghana"
               ].map((country) => (
                 <span
                   key={country}
-                  className="px-3 py-1 rounded-full bg-white/10 border border-white/20"
+                  className="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm hover:bg-white/20 transition-colors cursor-default"
                 >
                   {country}
                 </span>
@@ -46,16 +36,17 @@ const Footprint: React.FC = () => {
             </div>
           </div>
 
-          {/* Map side */}
-          <div className="relative bg-[#0A122C]">
+          {/* Map side - using curved design concept for consistency */}
+          <div className="relative min-h-[400px] bg-[#0A122C]">
             <img
-              src={africaMapUrl}
-              alt="Map of Sub Sahara Africa showing O'Shea SA operating countries"
-              className="w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
+              src="https://images.unsplash.com/photo-1601655648216-2fd1076629ec?q=75&w=1200&auto=format&fit=crop&fm=webp"
+              alt="Map of Sub Sahara Africa"
+              className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity"
             />
-            <div className="pointer-events-none absolute inset-4 rounded-[28px] border border-white/20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0F1A3E] via-[#0F1A3E]/50 to-transparent" />
+            
+            {/* Curved overlay on map side to match brand style */}
+             <div className="absolute bottom-0 right-0 w-32 h-32 bg-gray-50 rounded-tl-[80px] z-10"></div>
           </div>
         </div>
       </div>

@@ -1,14 +1,10 @@
+
 import type { FC } from 'react';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
-import About from '../components/About';
-import Industries from '../components/Industries';
-import WhyChooseUs from '../components/WhyChooseUs';
-import Team from '../components/Team';
-import Footprint from '../components/Footprint';
 import Accreditations from '../components/Accreditations';
-import WhyOshea from '../components/WhyOshea';
-import CaseStudies from '../components/CaseStudies';
+import FeaturedCaseStudy from '../components/FeaturedCaseStudy';
+import FinalCTA from '../components/FinalCTA';
 import Seo from '../components/Seo';
 
 const HomePage: FC = () => {
@@ -21,7 +17,7 @@ const HomePage: FC = () => {
           '@context': 'https://schema.org',
           '@type': 'Organization',
           'name': "O'Shea SA",
-          'url': 'https://www.oshea.co.za', // This should be the final canonical URL
+          'url': 'https://www.oshea.co.za',
           'contactPoint': {
             '@type': 'ContactPoint',
             'telephone': '+27-10-210-7715',
@@ -36,16 +32,21 @@ const HomePage: FC = () => {
           },
         }}
       />
+      
+      {/* 1. Hero Section */}
       <Hero />
-      <About />
-      <WhyOshea />
-      <Services />
+
+      {/* 2. Standards & Trust Section (Brochure Page 2 style) */}
       <Accreditations />
-      <Industries />
-      <CaseStudies />
-      <Footprint />
-      <WhyChooseUs />
-      <Team />
+
+      {/* 3. Services Pathways (Brochure Page 4 style - 3 pillars) */}
+      <Services />
+
+      {/* 4. Social Proof (Single Strong Case Study) */}
+      <FeaturedCaseStudy />
+
+      {/* 5. Final CTA */}
+      <FinalCTA />
     </>
   );
 };

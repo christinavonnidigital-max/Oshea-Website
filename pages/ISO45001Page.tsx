@@ -96,26 +96,36 @@ const ISO45001Page: FC = () => {
         </div>
       </section>
 
-      {/* Quick Stats */}
-      <section className="py-12 bg-gray-50 border-b border-gray-200">
+      {/* Cost Transparency Section */}
+      <section className="py-12 bg-white border-b border-gray-100">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-500 mb-1">3-6</div>
-              <div className="text-sm text-gray-600">Months to certify</div>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-[#0F1A3E] mb-8 text-center">Investment & Timeline</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Cost */}
+              <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wide mb-2">Typical Investment</p>
+                <p className="text-3xl font-bold text-[#0F1A3E] mb-1">R80k - R150k</p>
+                <p className="text-xs text-gray-500">Includes consultant, audit & cert fees</p>
+              </div>
+              {/* Timeline */}
+              <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wide mb-2">Timeline</p>
+                <p className="text-3xl font-bold text-[#0F1A3E] mb-1">3 - 6 Months</p>
+                <p className="text-xs text-gray-500">From gap analysis to certificate</p>
+              </div>
+              {/* Validity */}
+              <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
+                <p className="text-sm text-gray-500 font-semibold uppercase tracking-wide mb-2">Validity</p>
+                <p className="text-3xl font-bold text-[#0F1A3E] mb-1">3 Years</p>
+                <p className="text-xs text-gray-500">With annual surveillance audits</p>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-500 mb-1">35%</div>
-              <div className="text-sm text-gray-600">Avg. incident reduction</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-500 mb-1">Lower</div>
-              <div className="text-sm text-gray-600">Insurance premiums</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-orange-500 mb-1">OHS Act</div>
-              <div className="text-sm text-gray-600">Compliance support</div>
-            </div>
+             <div className="text-center mt-6">
+                <p className="text-sm text-gray-600">
+                   Need an exact quote for your business? <Link to="/contact" className="text-orange-600 font-semibold hover:underline">Get a custom proposal →</Link>
+                </p>
+             </div>
           </div>
         </div>
       </section>

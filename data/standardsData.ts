@@ -1,9 +1,3 @@
-// FIX: Import React because JSX is not supported in .ts files, so React.createElement must be used.
-import React, { type ReactNode } from 'react';
-import CertificationIcon from '../components/icons/CertificationIcon';
-import InspectionIcon from '../components/icons/InspectionIcon';
-import TrainingIcon from '../components/icons/TrainingIcon';
-
 export interface StandardDetail {
   code: string;
   name: string;

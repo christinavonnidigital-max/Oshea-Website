@@ -1,20 +1,50 @@
-import React, { useState, FormEvent } from "react";
+import React, { useState, useEffect, FormEvent } from "react";
 import AIContactModal from './AIContactModal';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    email: '', 
+    phone: '', 
+    standard: ''
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [isAIChatModalOpen, setIsAIChatModalOpen] = useState(false);
+  const [emailError, setEmailError] = useState('');
+  const [ctaText, setCtaText] = useState('Get Free Consultation');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  // Simple A/B Test for CTA Text
+  useEffect(() => {
+    const variants = [
+      'Get Free Consultation', 
+      'Get Free Quote', 
+      'Book Free Consultation'
+    ];
+    // Select a random variant on mount
+    const variant = variants[Math.floor(Math.random() * variants.length)];
+    setCtaText(variant);
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    if (name === 'email') setEmailError('');
+  };
+
+  const isValidEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message || isSubmitting) return;
+    if (!formData.name || !formData.email || isSubmitting) return;
+    
+    if (!isValidEmail(formData.email)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+
     setIsAIChatModalOpen(true);
   };
 
@@ -31,7 +61,7 @@ const Contact: React.FC = () => {
 
     if (isSuccess) {
       setSubmissionStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', standard: '' });
     } else {
       setSubmissionStatus('error');
     }
@@ -44,117 +74,148 @@ const Contact: React.FC = () => {
 
   return (
     <>
-      <section className="py-16">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F1A3E]">
-              Contact us
-            </h2>
-            <p className="mt-3 text-gray-600">
-              Have a question or want to work together? Send us a message!
-            </p>
-          </div>
-
           <div className="max-w-4xl mx-auto">
-            <div className="rounded-[28px] bg-white shadow-lg border border-[#E4E7F1] overflow-hidden">
-              <div className="h-1 w-full bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#DC3545]" />
-              <div className="px-8 py-8 grid md:grid-cols-2 gap-8 md:gap-12">
-                {/* Left Column: Address and Info */}
-                <div>
-                  <h3 className="text-lg font-semibold text-[#0F1A3E] mb-4">
-                    Contact Information
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                    Unit RGO-002 Ground Floor<br />
-                    Roland Garros Building<br />
-                    The Campus<br />
-                    57 Sloane Street, Bryanston<br />
-                    South Africa
-                  </p>
-                  <div className="space-y-2 text-sm text-gray-600">
-                    <p>
-                      <span className="font-medium text-[#0F1A3E]">Phone:</span> +27 10 210 7715
-                    </p>
-                    <p>
-                      <span className="font-medium text-[#0F1A3E]">Email:</span> info@oshea.co.za
-                    </p>
-                  </div>
-                   <div className="mt-6">
-                      <a
-                          href="https://maps.google.com"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center px-5 py-2.5 rounded-full border border-[#0F1A3E]/20 text-[#0F1A3E] text-sm hover:bg-[#0F1A3E]/5 transition-colors"
-                      >
-                          View on Google Maps
-                      </a>
-                  </div>
-                </div>
+            
+            <div className="text-center mb-10">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#0F1A3E] mb-4">
+                Get a Free Consultation
+                </h2>
+                <p className="text-lg text-gray-600">
+                Simple, transparent process. No obligation.
+                </p>
+            </div>
 
-                {/* Right Column: Contact Form */}
-                <div>
-                  <h3 className="text-lg font-semibold text-[#0F1A3E] mb-4">
-                    Send us a Message
-                  </h3>
-                  <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="rounded-[28px] bg-white shadow-xl border border-[#E4E7F1] overflow-hidden flex flex-col md:flex-row">
+              
+              {/* Contact Info Side */}
+              <div className="md:w-5/12 bg-[#0F1A3E] text-white p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
+                  {/* Gradient blob */}
+                  <div className="absolute -top-20 -left-20 w-64 h-64 bg-gradient-to-br from-[#FFC107] to-[#DC3545] opacity-20 rounded-full blur-3xl" />
+                  
+                  <div className="relative z-10">
+                      <h3 className="text-xl font-bold mb-6">Contact Information</h3>
+                      <div className="space-y-6">
+                          <div>
+                              <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Call Us</p>
+                              <a href="tel:+27102107715" className="text-lg font-semibold hover:text-[#FFC107] transition-colors">+27 10 210 7715</a>
+                          </div>
+                          <div>
+                              <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Email Us</p>
+                              <a href="mailto:info@oshea.co.za" className="text-lg font-semibold hover:text-[#FFC107] transition-colors">info@oshea.co.za</a>
+                          </div>
+                          <div>
+                              <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">Visit Us</p>
+                              <p className="leading-relaxed text-gray-300">
+                                  Unit RG0-002<br />
+                                  Roland Garros Building<br />
+                                  The Campus, Bryanston
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div className="relative z-10 mt-12">
+                      <div className="h-1 w-20 bg-gradient-to-r from-[#FFC107] to-[#DC3545] rounded-full" />
+                  </div>
+              </div>
+
+              {/* Form Side */}
+              <div className="md:w-7/12 p-8 md:p-12">
+                  <form onSubmit={handleSubmit} className="space-y-5">
                     <div>
-                      <label htmlFor="name" className="sr-only">Name</label>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                       <input
                         type="text"
                         name="name"
                         id="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Your Name"
+                        placeholder="John Doe"
                         required
-                        className="w-full px-4 py-2 bg-white text-gray-900 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:ring-2 focus:ring-[#0F1A3E] focus:border-transparent transition-all outline-none"
                       />
                     </div>
-                    <div>
-                      <label htmlFor="email" className="sr-only">Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Your Email"
-                        required
-                        className="w-full px-4 py-2 bg-white text-gray-900 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                      />
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="john@company.com"
+                            required
+                            className={`w-full px-4 py-3 bg-gray-50 border rounded-lg focus:bg-white focus:ring-2 focus:ring-[#0F1A3E] focus:border-transparent transition-all outline-none ${emailError ? 'border-red-500' : 'border-gray-200'}`}
+                        />
+                        {emailError && <p className="mt-1 text-xs text-red-500">{emailError}</p>}
+                        </div>
+                        <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input
+                            type="tel"
+                            name="phone"
+                            id="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="+27..."
+                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:ring-2 focus:ring-[#0F1A3E] focus:border-transparent transition-all outline-none"
+                        />
+                        </div>
                     </div>
+
                     <div>
-                      <label htmlFor="message" className="sr-only">Message</label>
-                      <textarea
-                        name="message"
-                        id="message"
-                        rows={4}
-                        value={formData.message}
+                      <label htmlFor="standard" className="block text-sm font-medium text-gray-700 mb-1">Which standard do you need?</label>
+                      <select
+                        name="standard"
+                        id="standard"
+                        value={formData.standard}
                         onChange={handleChange}
-                        placeholder="Your Message"
-                        required
-                        className="w-full px-4 py-2 bg-white text-gray-900 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                      ></textarea>
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:ring-2 focus:ring-[#0F1A3E] focus:border-transparent transition-all outline-none"
+                      >
+                        <option value="">Select a standard (Optional)</option>
+                        <option value="ISO 9001">ISO 9001 (Quality)</option>
+                        <option value="ISO 14001">ISO 14001 (Environment)</option>
+                        <option value="ISO 45001">ISO 45001 (Safety)</option>
+                        <option value="FSSC 22000">FSSC 22000 (Food Safety)</option>
+                        <option value="ISO 27001">ISO 27001 (Info Security)</option>
+                        <option value="Training">Training</option>
+                        <option value="Not sure">Not sure yet</option>
+                      </select>
                     </div>
-                    <div className="flex items-start flex-col">
+                    
+                    <div className="pt-2">
                        <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#0F1A3E] text-white text-sm font-semibold hover:bg-[#172552] transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                          className="w-full inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#DC3545] text-[#0F1A3E] font-bold text-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                        >
-                          {isSubmitting ? 'Sending...' : 'Send Message'}
+                          {isSubmitting ? 'Sending...' : ctaText}
                        </button>
-                      <div className="h-5 mt-2">
+                    </div>
+
+                    {/* Urgency / Trust Text - Updated */}
+                    <div className="text-center pt-2 border-t border-gray-100 mt-4">
+                        <p className="text-sm text-[#0F1A3E] font-medium mb-1">
+                            ⏱️ Next available slot: Friday 2pm
+                        </p>
+                        <p className="text-xs text-gray-500">
+                            We'll contact you within 2 hours during business hours.
+                        </p>
+                    </div>
+                    
+                    <div className="h-6 text-center">
                         {submissionStatus === 'success' && (
-                            <p className="text-sm text-green-600">Message sent successfully! We'll be in touch soon.</p>
+                            <p className="text-sm text-green-600 font-medium">Message sent! We'll be in touch shortly.</p>
                         )}
                         {submissionStatus === 'error' && (
-                            <p className="text-sm text-red-600">Something went wrong. Please try again.</p>
+                            <p className="text-sm text-red-600 font-medium">Something went wrong. Please try again.</p>
                         )}
-                      </div>
                     </div>
                   </form>
-                </div>
               </div>
             </div>
           </div>
@@ -164,7 +225,7 @@ const Contact: React.FC = () => {
         isOpen={isAIChatModalOpen}
         onClose={() => setIsAIChatModalOpen(false)}
         onConfirmSubmit={handleConfirmSubmit}
-        initialMessage={formData.message}
+        initialMessage={`Inquiry from ${formData.name} about ${formData.standard || 'services'}`}
       />
     </>
   );

@@ -1,129 +1,124 @@
+
 import { type FC, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-const heroFood = "https://images.unsplash.com/photo-15793540871-02100de5b49d?q=75&w=600&auto=format&fit=crop&fm=webp";
-const heroDigital = "https://images.unsplash.com/photo-1555949963-ff980e621733?q=75&w=600&auto=format&fit=crop&fm=webp";
-const heroIndustrial = "https://images.unsplash.com/photo-1581092446347-a85c4155db5e?q=75&w=600&auto=format&fit=crop&fm=webp";
-const heroSustainability = "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=75&w=600&auto=format&fit=crop&fm=webp";
-
-
-type HeroCardProps = {
-  image: string;
-  label: string;
-};
-
-const HeroCard: FC<HeroCardProps> = ({ image, label }) => (
-  <div className="relative rounded-[26px] overflow-hidden bg-white shadow-xl group">
-    <img
-      src={image}
-      alt={label}
-      className="w-full h-32 md:h-40 lg:h-44 object-cover group-hover:scale-105 transition-transform duration-300"
-      loading="eager"
-      decoding="sync"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-    <div className="absolute bottom-3 left-4 right-4 text-xs md:text-sm font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
-      {label}
-    </div>
-  </div>
-);
-
 const Hero: FC = () => {
-  const heroRef = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Update our state when observer callback fires
-        setIsInView(entry.isIntersecting);
-      },
-      {
-        threshold: 0.3, // Start animation when 30% of the hero is visible
-      }
-    );
-
-    const currentElement = heroRef.current;
-
-    if (currentElement) {
-      observer.observe(currentElement);
-    }
-
-    return () => {
-      if (currentElement) {
-        observer.unobserve(currentElement);
-      }
-    };
+    setIsInView(true);
   }, []);
 
   return (
-    <section ref={heroRef} className="relative bg-gray-50">
-      {/* Navy band with curved bottom like the brochure */}
-      <div className="absolute inset-x-0 top-0 h-[480px] md:h-[520px] bg-[#0F1A3E] rounded-b-[80px] md:rounded-b-[120px]" />
+    <section ref={heroRef} className="relative bg-gray-50 overflow-hidden">
+      {/* Navy band with curved bottom matching brochure */}
+      <div className="absolute inset-x-0 top-0 h-[920px] lg:h-[980px] bg-[#0F1A3E] rounded-br-[120px] z-0" />
 
-      {/* Added extra top padding (pt-32 md:pt-40) to account for the fixed header overlay */}
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:pt-40 md:pb-24">
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left – text like the brochure */}
-          <div className="text-white md:pr-8">
-            <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-[#FFC107] mb-3">
-              Certification • Inspection • Training
-            </p>
-
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              O'Shea SA
-            </h1>
-
-            <p className="mt-4 text-lg md:text-xl text-gray-200 max-w-xl">
-              Your Excellence in Execution. A cooperation partner of TÜV NORD
-              CERT GmbH, supporting organisations across Sub Sahara Africa.
-            </p>
-
-            {/* Pills: Certification / Inspection / Training */}
-            <div className="mt-6 flex flex-wrap gap-3">
-              <span className="px-4 py-2 rounded-full bg-white/10 border border-white/25 text-xs md:text-sm">
-                Certification
-              </span>
-              <span className="px-4 py-2 rounded-full bg-white/10 border border-white/25 text-xs md:text-sm">
-                Inspection
-              </span>
-              <span className="px-4 py-2 rounded-full bg-white/10 border border-white/25 text-xs md:text-sm">
-                Training
-              </span>
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-24 md:pt-44 md:pb-32">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="text-white space-y-8">
+            {/* Service Pills */}
+            <div className="flex flex-wrap gap-3 text-xs md:text-sm font-bold tracking-wide uppercase animate-fade-in-up">
+               {['Certification', 'Inspection', 'Training'].map((pill) => (
+                 <span key={pill} className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
+                   {pill}
+                 </span>
+               ))}
             </div>
 
-            {/* CTA */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            {/* Headline */}
+            <div className="space-y-6">
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
+                Your Excellence <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#DC3545]">
+                  in Execution
+                </span>
+              </h1>
+              
+              {/* Value Prop / Subheadline - Enhanced for Conversion */}
+              <div className="border-l-4 border-[#FD7E14] pl-6 py-2">
+                  <p className="text-2xl md:text-3xl font-semibold text-white leading-tight mb-3">
+                    Get ISO certified in 3-6 months.
+                  </p>
+                  <p className="text-lg text-gray-300 font-light leading-relaxed max-w-lg">
+                    Win tenders. Prove quality. Grow your business with a TÜV NORD cooperation partner.
+                  </p>
+              </div>
+            </div>
+
+            {/* CTAs - Simplified */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <Link
                 to="/contact"
-                className={`inline-flex items-center px-8 py-3 rounded-full bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#DC3545] font-semibold text-[#0F1A3E] shadow-lg hover:scale-105 hover:shadow-xl transition-transform transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white ${isInView ? 'animate-pulse-subtle' : ''}`}
+                className="px-8 py-4 rounded-full bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#DC3545] text-[#0F1A3E] font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-center"
               >
-                Talk to our team
+                Get Free Consultation
               </Link>
+              <Link
+                to="/services"
+                className="px-8 py-4 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 backdrop-blur-sm transition-all duration-300 text-center"
+              >
+                View Standards
+              </Link>
+            </div>
+
+            {/* Social Proof / Stats - Simplified & High Impact */}
+            <div className="pt-8 flex flex-wrap items-center gap-8 md:gap-12 text-sm font-medium text-gray-400 border-t border-white/10 mt-8">
+                <div>
+                    <span className="block text-3xl font-bold text-white mb-1">95%</span>
+                    First-time Pass
+                </div>
+                <div>
+                    <span className="block text-3xl font-bold text-white mb-1">3-6mo</span>
+                    Avg. Timeline
+                </div>
+                <div>
+                    <span className="block text-3xl font-bold text-white mb-1">100+</span>
+                    Certified Clients
+                </div>
             </div>
           </div>
 
-          {/* Right – 2×2 image grid, staggered like the brochure tiles */}
-          <div className="relative md:pl-4 lg:pl-8">
-            <div className="grid grid-cols-2 gap-4 md:gap-5">
-              <HeroCard image={heroFood} label="Food safety & FSSC 22000" />
-              <div className="translate-y-5">
-                <HeroCard
-                  image={heroDigital}
-                  label="Digital transformation & ISO 27001"
-                />
-              </div>
-              <div className="-translate-y-3">
-                <HeroCard
-                  image={heroIndustrial}
-                  label="Industrial operations & ISO 45001"
-                />
-              </div>
-              <HeroCard
-                image={heroSustainability}
-                label="Sustainability & ISO 14001"
-              />
-            </div>
+          {/* Right Image Grid - Staggered 4 images representing key sectors (Brochure Style) */}
+          <div className="relative hidden lg:block">
+             {/* Decorative blob/gradient behind images */}
+             <div className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-gradient-to-br from-[#FFC107] via-[#FD7E14] to-[#DC3545] opacity-20 rounded-full blur-3xl pointer-events-none" />
+             
+             <div className="grid grid-cols-2 gap-4 relative z-10">
+               {/* Column 1 - Shifted down */}
+               <div className="space-y-4 pt-12">
+                 <div className="h-48 rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105 border-4 border-white/10 group relative">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=75&w=600&auto=format&fit=crop" alt="Food Safety" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F1A3E]/90 to-transparent flex items-end p-4">
+                      <span className="text-white font-bold text-sm tracking-wide">Food Safety</span>
+                    </div>
+                 </div>
+                 <div className="h-64 rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105 border-4 border-white/10 group relative">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=75&w=600&auto=format&fit=crop" alt="Manufacturing" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F1A3E]/90 to-transparent flex items-end p-4">
+                      <span className="text-white font-bold text-sm tracking-wide">Manufacturing</span>
+                    </div>
+                 </div>
+               </div>
+               
+               {/* Column 2 */}
+               <div className="space-y-4">
+                 <div className="h-64 rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105 border-4 border-white/10 group relative">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=600&auto=format&fit=crop" alt="Digital Standards" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F1A3E]/90 to-transparent flex items-end p-4">
+                      <span className="text-white font-bold text-sm tracking-wide">Standards & Digital</span>
+                    </div>
+                 </div>
+                 <div className="h-48 rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105 border-4 border-white/10 group relative">
+                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=75&w=600&auto=format&fit=crop" alt="Environment" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-[#0F1A3E]/90 to-transparent flex items-end p-4">
+                      <span className="text-white font-bold text-sm tracking-wide">Environment</span>
+                    </div>
+                 </div>
+               </div>
+             </div>
           </div>
         </div>
       </div>

@@ -1,72 +1,78 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CheckIcon from "./icons/CheckIcon";
 
 const reasons = [
   {
-    title: "We're local with global credentials",
-    text: "Based in Bryanston, certified through TÜV NORD Germany. You get international recognition without dealing with overseas consultants who don't understand South African business realities. We know SADC cross-border operations, load shedding workarounds, and local compliance requirements.",
+    title: "Accredited & Recognized",
+    text: "Our certifications are accepted globally.",
   },
   {
-    title: "We build systems you'll actually use",
-    text: "Too many consultants deliver theoretical perfection that looks great on paper but dies in practice. We build quality systems around how your business actually operates - documentation your team will use, not binders that gather dust. Our pre-audits catch issues before the real thing.",
+    title: "Expert Team",
+    text: "Auditors, inspectors, and trainers with decades of experience.",
   },
   {
-    title: "Fast turnaround, first-time pass rate",
-    text: "Most clients go from contact to certificate in 3-6 months. We don't drag it out because we're paid by the hour. Our thorough pre-audits mean you rarely get major non-conformances. Failed audits waste time and money - we make sure you pass the first time.",
+    title: "Client-Centric Approach",
+    text: "Tailored solutions for your business needs.",
   },
   {
-    title: "One partner for multiple standards",
-    text: "Need ISO 9001, 14001, and 45001? We do integrated audits - saves you 30% compared to certifying separately. One relationship, one process, certificates that work together. Add new standards later without starting from scratch.",
+    title: "Global Reach",
+    text: "Services delivered locally and internationally.",
+  },
+  {
+    title: "Commitment to Integrity",
+    text: "Impartial, transparent, and ethical practice.",
   },
 ];
 
 const WhyChooseUs: React.FC = () => {
   return (
-    <section className="py-16">
+    <section className="py-20 bg-white overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-10">
-          <span className="inline-flex items-center px-4 py-1 rounded-full text-xs font-semibold tracking-wide bg-orange-100 text-orange-600 mb-4">
-            What makes us different
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F1A3E]">
-            Why work with O'Shea SA
-          </h2>
-          <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
-            We're not just another certification body. Here's what actually sets us apart.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
-          {reasons.map((reason, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl shadow-sm border border-[#E4E7F1] px-6 py-6 hover:shadow-md transition-shadow"
-            >
-              <div className="flex gap-4">
-                <div className="mt-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-orange-400 to-red-500">
-                  <span className="text-lg font-bold text-white">{index + 1}</span>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="order-2 lg:order-1">
+            <span className="inline-block py-1 px-3 rounded-full bg-orange-100 text-orange-600 text-xs font-bold tracking-wide uppercase mb-4">
+              Our Value Proposition
+            </span>
+            <h2 className="text-4xl font-bold text-[#0F1A3E] mb-6">
+              Why Choose Us
+            </h2>
+            <p className="text-lg text-gray-600 mb-10">
+              Partnering for excellence and sustainable growth.
+            </p>
+            
+            <div className="space-y-8">
+              {reasons.map((reason, index) => (
+                <div key={index} className="flex gap-5 group">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-[#FFC107] to-[#DC3545] flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <CheckIcon /> 
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#0F1A3E] text-lg mb-1">{reason.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{reason.text}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-bold text-[#0F1A3E] mb-2 text-lg">
-                    {reason.title}
-                  </h3>
-                  <p className="text-sm text-gray-700 leading-relaxed">{reason.text}</p>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className="mt-12 text-center bg-gray-50 rounded-2xl p-8 max-w-3xl mx-auto">
-          <p className="text-gray-700 mb-4">
-            Bottom line: We get you certified faster, make sure you pass the first time, and build systems that actually improve your business - not just tick boxes for auditors.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center px-6 py-3 rounded-full bg-[#0F1A3E] text-white font-semibold hover:bg-[#172552] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-500"
-          >
-            See if we're a good fit
-          </Link>
+            <div className="mt-12">
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-8 py-4 rounded-full bg-[#0F1A3E] text-white font-bold hover:bg-[#1a2b5f] transition-colors shadow-lg hover:shadow-xl"
+              >
+                Partner With Us
+              </Link>
+            </div>
+          </div>
+          
+          <div className="order-1 lg:order-2 relative">
+             <div className="absolute -inset-4 bg-gradient-to-tr from-[#FFC107] via-[#FD7E14] to-[#DC3545] rounded-[40px] transform rotate-3 opacity-20"></div>
+             <img 
+               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=75&w=800&auto=format&fit=crop" 
+               alt="Professional Team Meeting" 
+               className="relative rounded-[32px] shadow-2xl object-cover h-[600px] w-full"
+             />
+          </div>
         </div>
       </div>
     </section>

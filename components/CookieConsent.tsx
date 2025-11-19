@@ -29,31 +29,27 @@ const CookieConsent: FC = () => {
       role="dialog"
       aria-modal="true"
       aria-labelledby="cookie-consent-title"
-      aria-describedby="cookie-consent-description"
-      className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6"
+      className="fixed z-50 bottom-0 left-0 w-full sm:w-auto sm:bottom-4 sm:left-4 sm:max-w-sm"
     >
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="text-sm text-gray-700">
-          <h2 id="cookie-consent-title" className="font-bold text-base text-[#0F1A3E]">Our Use of Cookies</h2>
-          <p id="cookie-consent-description" className="mt-1">
-            We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept", you consent to our use of cookies. Read our{' '}
-            <Link to="/cookie-policy" className="font-semibold text-orange-600 hover:underline">
-              Cookie Policy
-            </Link>.
-          </p>
-        </div>
-        <div className="flex-shrink-0 flex items-center gap-4">
-          <button
-            onClick={() => handleConsent(false)}
-            className="px-5 py-2 rounded-full text-sm font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500"
-          >
-            Decline
-          </button>
+      <div className="bg-white border-t sm:border border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] sm:shadow-xl sm:rounded-xl p-6 animate-fade-in-up">
+        <h2 id="cookie-consent-title" className="font-bold text-[#0F1A3E] mb-2 text-sm">We use cookies</h2>
+        <p className="text-xs text-gray-600 mb-4 leading-relaxed">
+          We use cookies to improve your experience and analyze our traffic. By clicking "Accept", you consent to our use of cookies. 
+          <Link to="/cookie-policy" className="ml-1 text-orange-600 hover:underline">Read Policy</Link>.
+        </p>
+        
+        <div className="flex gap-3">
           <button
             onClick={() => handleConsent(true)}
-            className="px-5 py-2 rounded-full text-sm font-semibold text-white bg-[#0F1A3E] hover:bg-opacity-90 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0F1A3E]"
+            className="flex-1 px-4 py-2 rounded-lg text-xs font-bold text-white bg-[#0F1A3E] hover:bg-[#1a2b5f] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0F1A3E]"
           >
             Accept
+          </button>
+          <button
+            onClick={() => handleConsent(false)}
+            className="flex-1 px-4 py-2 rounded-lg text-xs font-bold text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500"
+          >
+            Decline
           </button>
         </div>
       </div>
