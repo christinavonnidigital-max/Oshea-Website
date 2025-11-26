@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img" aria-label="Coverage map placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b1b2b"/>
+      <stop offset="100%" stop-color="#0a3d7a"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" fill="url(#bg)"/>
+  <g fill="#cfe4ff" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="50%" y="45%" font-size="34" font-weight="700">Coverage map placeholder</text>
+    <text x="50%" y="55%" font-size="20">Replace with your coloured map at /public/maps/coverage.png (or overwrite coverage.svg)</text>
+  </g>
+</svg>

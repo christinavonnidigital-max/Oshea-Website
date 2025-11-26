@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="110" viewBox="0 0 220 110" role="img" aria-label="DAkkS accreditation">
+  <defs>
+    <linearGradient id="g1" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#d60000"/>
+      <stop offset="100%" stop-color="#f6a800"/>
+    </linearGradient>
+  </defs>
+  <rect width="220" height="110" fill="white"/>
+  <circle cx="60" cy="55" r="50" fill="none" stroke="#1e1e1e" stroke-width="6"/>
+  <circle cx="60" cy="55" r="40" fill="none" stroke="#b7c8d6" stroke-width="7"/>
+  <path d="M22 55a38 38 0 0 1 76 0" fill="none" stroke="#1e1e1e" stroke-width="8" stroke-linecap="round"/>
+  <path d="M18 55a42 42 0 0 1 84 0" fill="none" stroke="#b7c8d6" stroke-width="6" stroke-linecap="round" opacity=".85"/>
+  <path d="M30 24c-10 11-15 23-15 31 0 9 5 22 15 33" fill="none" stroke="url(#g1)" stroke-width="10" stroke-linecap="round"/>
+  <text x="95" y="60" font-family="Georgia, 'Times New Roman', serif" font-size="38" fill="#242021">DAkkS</text>
+  <text x="98" y="83" font-family="'Segoe UI', Arial, sans-serif" font-size="18" fill="#242021">Akkreditierung</text>
+</svg>

@@ -1,0 +1,42 @@
+{
+  "name": "o'shea-sa-corporate-website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --max-old-space-size=16384 node_modules/vite/bin/vite.js",
+    "build": "node --max-old-space-size=16384 node_modules/vite/bin/vite.js build",
+    "preview": "node --max-old-space-size=16384 node_modules/vite/bin/vite.js preview",
+    "dev:large": "node --max-old-space-size=16384 node_modules/vite/bin/vite.js",
+    "build:large": "node --max-old-space-size=16384 node_modules/vite/bin/vite.js build",
+    "preview:large": "node --max-old-space-size=16384 node_modules/vite/bin/vite.js preview",
+    "dev:env": "cross-env NODE_OPTIONS=--max-old-space-size=16384 vite",
+    "build:env": "cross-env NODE_OPTIONS=--max-old-space-size=16384 vite build",
+    "preview:env": "cross-env NODE_OPTIONS=--max-old-space-size=16384 vite preview"
+  },
+  "dependencies": {
+    "@google/genai": "latest",
+    "@vitejs/plugin-react": "^5.1.1",
+    "d3-geo": "^3.1.1",
+    "path": "^0.12.7",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-helmet": "6.1.0",
+    "react-router-dom": "6.22.3",
+    "react-simple-maps": "^3.0.0",
+    "topojson-client": "^3.1.0",
+    "vite": "^7.2.2",
+    "world-atlas": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react-helmet": "^6.1.11",
+    "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.13",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

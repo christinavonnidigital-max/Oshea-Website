@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="230" height="120" viewBox="0 0 230 120" role="img" aria-label="ESYD accreditation">
+  <rect width="230" height="120" fill="none"/>
+  <ellipse cx="115" cy="60" rx="104" ry="42" fill="none" stroke="#24317e" stroke-width="6"/>
+  <ellipse cx="115" cy="60" rx="92" ry="34" fill="none" stroke="#24317e" stroke-width="3"/>
+  <text x="52" y="75" font-family="'Montserrat', Arial, sans-serif" font-size="44" font-weight="800" fill="#24317e" letter-spacing="1">ESYD</text>
+  <g transform="translate(160 18) scale(0.9)">
+    <rect x="0" y="0" width="26" height="18" fill="#24317e"/>
+    <rect x="0" y="6" width="26" height="2" fill="#fff"/>
+    <rect x="0" y="12" width="26" height="2" fill="#fff"/>
+    <rect x="8" y="0" width="2" height="18" fill="#fff"/>
+    <rect x="14" y="0" width="2" height="18" fill="#fff"/>
+    <rect x="20" y="0" width="2" height="18" fill="#fff"/>
+  </g>
+</svg>
