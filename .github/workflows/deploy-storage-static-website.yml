@@ -1,0 +1,44 @@
+name: Deploy to Azure Storage Static Website
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Install Azure CLI
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      - name: Upload to $web container
+        if: env.AZURE_STORAGE_CONNECTION_STRING != ''
+        run: |
+          az storage blob upload-batch --source dist --destination '$web' --connection-string "$AZURE_STORAGE_CONNECTION_STRING" --overwrite --only-show-errors
+
+      - name: Missing secret notice
+        if: env.AZURE_STORAGE_CONNECTION_STRING == ''
+        run: |
+          echo "AZURE_STORAGE_CONNECTION_STRING secret is not set. Add it in GitHub repository Settings → Secrets and variables → Actions." && exit 1
