@@ -1,145 +1,109 @@
 import React from "react";
 
 const Team: React.FC = () => {
+  const teamMembers = [
+    {
+      initials: "FC",
+      name: "Farayi Chipango",
+      title: "Managing Director",
+      description:
+        "Leads overall strategy and key client relationships for certification, inspection and training services across the region.",
+      tel: "+27 10 210 7715",
+      cell: "+27 83 963 5544",
+      email: "fchipango@oshea.co.za",
+    },
+    {
+      initials: "IG",
+      name: "Isabel Gumpo",
+      title: "Chief Financial Officer",
+      description:
+        "Oversees financial management, governance and sustainable growth of certification, inspection and training activities.",
+      tel: "+27 10 210 7715",
+      cell: "+27 79 095 6736",
+      email: "igumpo@oshea.co.za",
+    },
+    {
+      initials: "AS",
+      name: "Albert Shamu",
+      title: "Certification Administrator",
+      description:
+        "Coordinates certification administration, client documentation and audit cycle logistics.",
+      tel: "+27 10 210 7715",
+      cell: "+27 63 190 5136",
+      email: "ashamu@oshea.co.za",
+    },
+  ];
+
   return (
-    <section id="team" className="bg-white">
+    <section id="team" className="bg-gradient-to-b from-white via-slate-50 to-white">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
-              Team
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-              Leadership and key contacts.
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm text-slate-600 sm:text-base">
-              A focused team combining regional experience, technical expertise
-              and financial oversight for accredited ISO certification,
-              inspection and training.
-            </p>
-            <p className="mt-3 text-sm text-slate-500">
-              Office: Unit RG0-002, Ground Floor, Roland Garros Building, The
-              Campus, 57 Sloane Street, Bryanston, South Africa.
-            </p>
-          </div>
+        <div className="mb-12">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
+            Our Team
+          </p>
+          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl mb-4">
+            Leadership and key contacts
+          </h2>
+          <p className="text-slate-600 leading-relaxed max-w-3xl">
+            A focused team combining regional experience, technical expertise and financial oversight.
+          </p>
         </div>
 
-        {/* Cards: clean, even layout */}
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {/* Farayi */}
-          <article className="flex h-full flex-col rounded-3xl bg-slate-50 p-6 shadow-sm ring-1 ring-slate-200/80">
-            <div className="flex items-center gap-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">
-                FC
+        <div className="grid gap-6 md:grid-cols-3 mb-8">
+          {teamMembers.map((member) => (
+            <article
+              key={member.email}
+              className="flex flex-col bg-white rounded-xl p-6 border border-slate-200 transition-all duration-300 hover:shadow-lg hover:border-blue-200"
+            >
+              <div className="flex items-start gap-4 mb-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-base font-bold text-white">
+                  {member.initials}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-lg font-bold text-slate-900">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-slate-600">{member.title}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-base font-semibold text-slate-900">
-                  Farayi Chipango
-                </h3>
-                <p className="text-sm text-slate-600">Managing Director</p>
-                <span className="mt-1 inline-flex rounded-full bg-slate-900/5 px-2 py-0.5 text-[11px] font-medium text-slate-700">
-                  Primary contact
-                </span>
+
+              <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                {member.description}
+              </p>
+
+              <div className="mt-auto space-y-2 pt-4 border-t border-slate-100">
+                <div className="flex items-center gap-2 text-sm">
+                  <svg className="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <a href={`tel:${member.cell}`} className="text-slate-700 hover:text-blue-700 transition-colors">
+                    {member.cell}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <svg className="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <a href={`mailto:${member.email}`} className="text-slate-700 hover:text-blue-700 transition-colors truncate">
+                    {member.email}
+                  </a>
+                </div>
               </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <div className="inline-flex items-start gap-2 text-sm text-slate-600 bg-slate-100 rounded-lg px-4 py-3">
+            <svg className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <div className="text-left">
+              <p className="font-semibold text-slate-900 text-sm">Head Office</p>
+              <p className="text-xs">Unit RG0-002, Ground Floor, Roland Garros Building, The Campus, 57 Sloane Street, Bryanston, South Africa</p>
             </div>
-
-            <p className="mt-4 flex-1 text-sm text-slate-600">
-              Leads overall strategy and key client relationships for
-              certification, inspection and training services across the
-              region.
-            </p>
-
-            <dl className="mt-4 space-y-1 text-xs text-slate-600">
-              <div className="flex gap-2">
-                <dt className="font-semibold text-slate-500">Tel</dt>
-                <dd>+27 10 210 7715</dd>
-              </div>
-              <div className="flex gap-2">
-                <dt className="font-semibold text-slate-500">Cell</dt>
-                <dd>+27 83 963 5544</dd>
-              </div>
-              <div className="flex gap-2">
-                <dt className="font-semibold text-slate-500">Email</dt>
-                <dd>fchipango@oshea.co.za</dd>
-              </div>
-            </dl>
-          </article>
-
-          {/* Isabel */}
-          <article className="flex h-full flex-col rounded-3xl bg-slate-50 p-6 shadow-sm ring-1 ring-slate-200/80">
-            <div className="flex items-center gap-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">
-                IG
-              </div>
-              <div>
-                <h3 className="text-base font-semibold text-slate-900">
-                  Isabel Gumpo
-                </h3>
-                <p className="text-sm text-slate-600">Chief Financial Officer</p>
-                <span className="mt-1 inline-flex rounded-full bg-slate-900/5 px-2 py-0.5 text-[11px] font-medium text-slate-700">
-                  Finance and governance
-                </span>
-              </div>
-            </div>
-
-            <p className="mt-4 flex-1 text-sm text-slate-600">
-              Oversees financial management, governance and sustainable growth
-              of certification, inspection and training activities.
-            </p>
-
-            <dl className="mt-4 space-y-1 text-xs text-slate-600">
-              <div className="flex gap-2">
-                <dt className="font-semibold text-slate-500">Tel</dt>
-                <dd>+27 10 210 7715</dd>
-              </div>
-              <div className="flex gap-2">
-                <dt className="font-semibold text-slate-500">Cell</dt>
-                <dd>+27 79 095 6736</dd>
-              </div>
-              <div className="flex gap-2">
-                <dt className="font-semibold text-slate-500">Email</dt>
-                <dd>igumpo@oshea.co.za</dd>
-              </div>
-            </dl>
-          </article>
-
-          {/* Albert */}
-          <article className="flex h-full flex-col rounded-3xl bg-slate-50 p-6 shadow-sm ring-1 ring-slate-200/80">
-            <div className="flex items-center gap-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">
-                AS
-              </div>
-              <div>
-                <h3 className="text-base font-semibold text-slate-900">
-                  Albert Shamu
-                </h3>
-                <p className="text-sm text-slate-600">Certification Administrator</p>
-                <span className="mt-1 inline-flex rounded-full bg-slate-900/5 px-2 py-0.5 text-[11px] font-medium text-slate-700">
-                  Client coordination
-                </span>
-              </div>
-            </div>
-
-            <p className="mt-4 flex-1 text-sm text-slate-600">
-              Coordinates certification administration, client documentation and
-              audit cycle logistics.
-            </p>
-
-            <dl className="mt-4 space-y-1 text-xs text-slate-600">
-              <div className="flex gap-2">
-                <dt className="font-semibold text-slate-500">Tel</dt>
-                <dd>+27 10 210 7715</dd>
-              </div>
-              <div className="flex gap-2">
-                <dt className="font-semibold text-slate-500">Cell</dt>
-                <dd>+27 63 190 5136</dd>
-              </div>
-              <div className="flex gap-2">
-                <dt className="font-semibold text-slate-500">Email</dt>
-                <dd>ashamu@oshea.co.za</dd>
-              </div>
-            </dl>
-          </article>
+          </div>
         </div>
       </div>
     </section>

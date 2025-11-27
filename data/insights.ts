@@ -18,7 +18,7 @@ export const insights: Insight[] = [
     date: "Dec 27, 2025",
     category: "Sustainability",
     image:
-      "https://images.unsplash.com/photo-1509099836639-18ba02e2e958?auto=format&fit=crop&w=1100&q=80",
+      "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=1100&q=80",
     body: [
       "Think of carbon footprint verification like financial auditing: you are tracking greenhouse gas emissions with third-party assurance so investors, customers, and lenders trust the numbers.",
       "Capital markets and enterprise buyers now require verified emissions data; climate risk influences tenders, lending, and ratings. Verification proves your Scope 1, 2, and material Scope 3 data is accurate.",

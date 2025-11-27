@@ -3,43 +3,36 @@ import React from "react";
 const logos = [
   {
     name: "DAkkS accreditation",
-    src: "/logos/dakks.svg",
+    src: "/logos/dakks.png",
   },
   {
     name: "IAF MLA member",
-    src: "/logos/iaf.svg",
+    src: "/logos/iaf.png",
   },
   {
     name: "ESYD accreditation",
-    src: "/logos/esyd.svg",
+    src: "/logos/esyd.png",
   },
 ];
 
 const Accreditations: React.FC = () => {
   return (
-    <section className="bg-white border-b border-slate-100">
+    <section className="bg-white border-y border-slate-200">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
-            Recognised accreditation bodies
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+            Accredited by leading bodies
           </p>
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-8">
             {logos.map((logo) => (
-              <div
+              <img
                 key={logo.name}
-                className="group rounded-xl border border-slate-200 bg-slate-50/60 px-3 py-2 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-                role="img"
-                aria-label={logo.name}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  className="object-contain transition duration-200 group-hover:scale-105"
-                  style={{ height: 38, width: "auto" }}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+                src={logo.src}
+                alt={logo.name}
+                className="h-10 w-auto max-w-[120px] object-contain opacity-60 hover:opacity-100 transition-opacity"
+                loading="lazy"
+                decoding="async"
+              />
             ))}
           </div>
         </div>

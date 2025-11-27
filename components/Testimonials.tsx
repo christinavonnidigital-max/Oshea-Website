@@ -23,40 +23,48 @@ const testimonials = [
 ];
 
 const Testimonials: React.FC = () => (
-  <section className="bg-white">
+  <section className="bg-gradient-to-b from-white to-slate-50">
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
-            Proof in practice
-          </p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl lg:text-4xl text-slate-900">
-            Real outcomes for clients
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm text-slate-600 sm:text-base leading-relaxed">
-            Credibility through accredited certification, practical training, and clear findings you can act on.
-          </p>
-        </div>
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-800 transition"
-        >
-          Talk to us
-          <span aria-hidden="true">→</span>
-        </Link>
+      <div className="mb-12">
+        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
+          Proof in Practice
+        </p>
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-slate-900 mb-4">
+          Real outcomes for clients
+        </h2>
+        <p className="text-slate-600 leading-relaxed max-w-3xl">
+          Credibility through accredited certification, practical training, and clear findings you can act on.
+        </p>
       </div>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-3 mb-12">
         {testimonials.map((item, idx) => (
           <article
             key={idx}
-            className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+            className="h-full flex flex-col rounded-xl bg-white p-8 border border-slate-200 transition-all duration-300 hover:shadow-lg hover:border-blue-200"
           >
-            <p className="text-sm text-slate-700 leading-relaxed">"{item.quote}"</p>
-            <p className="mt-4 text-xs font-semibold text-brand-blue">{item.result}</p>
-            <p className="mt-2 text-xs text-slate-500">{item.name}</p>
+            <p className="text-slate-700 leading-relaxed mb-6 italic">
+              "{item.quote}"
+            </p>
+
+            <div className="mt-auto pt-6 border-t border-slate-100">
+              <p className="text-sm font-semibold text-blue-700 mb-2">{item.result}</p>
+              <p className="text-xs text-slate-500">{item.name}</p>
+            </div>
           </article>
         ))}
+      </div>
+
+      <div className="text-center">
+        <Link
+          to="/contact"
+          className="group inline-flex items-center gap-2 rounded-full bg-blue-700 px-8 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-blue-800 transition-all hover:scale-105"
+        >
+          Talk to us about your project
+          <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </Link>
       </div>
     </div>
   </section>
