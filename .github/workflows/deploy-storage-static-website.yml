@@ -2,7 +2,7 @@ name: Deploy to Azure Storage Static Website
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,8 +11,6 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-      AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,11 +32,15 @@ jobs:
           curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
       - name: Upload to $web container
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
         if: env.AZURE_STORAGE_CONNECTION_STRING != ''
         run: |
           az storage blob upload-batch --source dist --destination '$web' --connection-string "$AZURE_STORAGE_CONNECTION_STRING" --overwrite --only-show-errors
 
       - name: Set Cache-Control for hashed assets (long cache)
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
         if: env.AZURE_STORAGE_CONNECTION_STRING != ''
         shell: bash
         run: |
@@ -58,6 +60,8 @@ jobs:
           fi
 
       - name: Set Cache-Control for index.html (no-cache)
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
         if: env.AZURE_STORAGE_CONNECTION_STRING != ''
         run: |
           az storage blob update --container-name '$web' --name index.html \
@@ -66,6 +70,6 @@ jobs:
             --only-show-errors
 
       - name: Missing secret notice
-        if: env.AZURE_STORAGE_CONNECTION_STRING == ''
+        if: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING == '' }}
         run: |
           echo "AZURE_STORAGE_CONNECTION_STRING secret is not set. Add it in GitHub repository Settings → Secrets and variables → Actions." && exit 1

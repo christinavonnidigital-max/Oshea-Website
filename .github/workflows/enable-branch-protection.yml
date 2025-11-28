@@ -1,0 +1,38 @@
+name: Enable Branch Protection (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  protect-main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable branch protection via GitHub Script
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.REPO_ADMIN_TOKEN }}
+          script: |
+            if (!core.getInput('github-token')) {
+              core.setFailed('REPO_ADMIN_TOKEN secret is required with repo scope to update branch protection.');
+              return;
+            }
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const branch = 'main';
+            await github.repos.updateBranchProtection({
+              owner,
+              repo,
+              branch,
+              required_status_checks: null,
+              enforce_admins: false,
+              required_pull_request_reviews: {
+                dismiss_stale_reviews: true,
+                require_code_owner_reviews: false,
+                required_approving_review_count: 1
+              },
+              restrictions: null
+            });
