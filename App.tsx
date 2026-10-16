@@ -13,6 +13,7 @@ import Team from './components/Team';
 import PageHero from './components/PageHero';
 import Industries from './components/Industries';
 import InsightDetailPage from './pages/InsightDetailPage';
+import PolicyPage from './pages/PolicyPage';
 
 const SITE_URL = "https://www.oshea.co.za";
 
@@ -23,7 +24,7 @@ const TeamPageWrapper = () => (
       <title>Leadership Team | O'Shea SA</title>
       <meta
         name="description"
-        content="Meet the leadership team guiding O'Shea SA's accredited certification, inspection, and training services."
+        content="Meet the leadership team guiding O'Shea SA's certification, inspection, and training services."
       />
       <meta property="og:title" content="Leadership Team | O'Shea SA" />
       <meta
@@ -63,7 +64,7 @@ const IndustriesPageWrapper = () => (
     </Helmet>
     <PageHero 
       title="Expertise Across Critical Industries" 
-      subtitle="From manufacturing to IT, we support compliance in over 10 sectors."
+      subtitle="Compliance support for manufacturing, mining, energy, construction and more."
       backgroundImage="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1400&q=75"
     />
     <Industries />
@@ -71,11 +72,15 @@ const IndustriesPageWrapper = () => (
 );
 
 const App: React.FC = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      document.getElementById(hash.slice(1))?.scrollIntoView();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
 
   return (
     <Routes>
@@ -85,6 +90,8 @@ const App: React.FC = () => {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/team" element={<TeamPageWrapper />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/privacy" element={<PolicyPage kind="privacy" />} />
+      <Route path="/terms" element={<PolicyPage kind="terms" />} />
       <Route path="/insights" element={<InsightsPage />} /> {/* New Route */}
       <Route path="/insights/:slug" element={<InsightDetailPage />} />
     </Routes>

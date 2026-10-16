@@ -28,3 +28,9 @@ To preview the build locally:
 ```sh
 npm run preview
 ```
+
+## Enquiries and content
+
+The contact form prepares an email to `info@oshea.co.za` in the visitor's email app. The visitor must send it there; the website does not submit or store enquiry fields. Email delivery requires the visitor's email app and provider.
+
+Service buttons preselect the enquiry's service. Privacy and website information pages describe the current workflow. See [content requiring confirmation](docs/content-confirmation.md) before restoring accreditation claims, statistics or testimonials.

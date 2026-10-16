@@ -7,7 +7,6 @@ import Services from "../components/Services";
 import Industries from "../components/Industries";
 import Team from "../components/Team";
 import ContactCTA from "../components/ContactCTA";
-import Testimonials from "../components/Testimonials";
 import Footprint from "../components/Footprint";
 
 const SITE_URL = "https://www.oshea.co.za";
@@ -19,7 +18,7 @@ const Home: React.FC = () => {
         <title>O'Shea SA | ISO Certification, Inspection & Training in Sub-Saharan Africa</title>
         <meta
           name="description"
-          content="Accredited ISO certification, inspection, and training across Sub-Saharan Africa. Trusted cooperation partner of TÜV NORD CERT GmbH."
+          content="ISO certification, inspection, and training across Sub-Saharan Africa. Explore O'Shea SA's services and discuss your requirements."
         />
         <meta property="og:title" content="O'Shea SA | ISO Certification, Inspection & Training" />
         <meta
@@ -37,7 +36,6 @@ const Home: React.FC = () => {
       <Services />
       <Industries />
       <Footprint />
-      <Testimonials />
       <Team />
       <ContactCTA />
     </Layout>

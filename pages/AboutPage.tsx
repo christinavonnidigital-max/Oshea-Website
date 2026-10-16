@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import Layout from '../components/Layout';
 import PageHero from '../components/PageHero';
@@ -12,12 +12,12 @@ const AboutPage: React.FC = () => {
         <title>About O'Shea SA | TUV NORD CERT Cooperation Partner</title>
         <meta
           name="description"
-          content="Learn about O'Shea SA: a TUV NORD CERT cooperation partner delivering accredited certification, inspection, and training across Sub-Saharan Africa."
+          content="Learn about O'Shea SA's certification, inspection, and training services across Sub-Saharan Africa."
         />
         <meta property="og:title" content="About O'Shea SA" />
         <meta
           property="og:description"
-          content="Meet the team behind O'Shea SA's accredited certification and compliance services."
+          content="Meet the team behind O'Shea SA's certification and compliance services."
         />
         <meta
           property="og:image"
@@ -52,40 +52,14 @@ const AboutPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Stats Card */}
-            <div className="lg:sticky lg:top-24">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 p-8 shadow-lg ring-1 ring-slate-200">
-                <div className="absolute top-0 right-0 h-32 w-32 translate-x-8 -translate-y-8 rounded-full bg-blue-500/10 blur-2xl" />
-                <div className="absolute bottom-0 left-0 h-32 w-32 -translate-x-8 translate-y-8 rounded-full bg-indigo-500/10 blur-2xl" />
-
-                <div className="relative">
-                  <h3 className="text-lg font-bold text-slate-900 mb-6">Impact at a Glance</h3>
-                  <dl className="grid grid-cols-2 gap-6">
-                    <div className="flex flex-col">
-                      <dt className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Countries</dt>
-                      <dd className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">10+</dd>
-                    </div>
-                    <div className="flex flex-col">
-                      <dt className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Industries</dt>
-                      <dd className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">8+</dd>
-                    </div>
-                    <div className="flex flex-col">
-                      <dt className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Certifications</dt>
-                      <dd className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">500+</dd>
-                    </div>
-                    <div className="flex flex-col">
-                      <dt className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Experience</dt>
-                      <dd className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">15y</dd>
-                    </div>
-                  </dl>
-
-                  <div className="mt-8 pt-6 border-t border-slate-200">
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      Trusted by organizations across Sub-Saharan Africa to deliver independent, accredited certification and inspection services.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="rounded-2xl border border-slate-200 bg-blue-50 p-8">
+              <h3 className="text-xl font-bold text-slate-900">Discuss your service requirements</h3>
+              <dl className="mt-6 space-y-5">
+                <div><dt className="font-semibold text-slate-900">Certification</dt><dd className="mt-1 text-slate-600">ISO 9001, ISO 14001 and ISO 45001 enquiries.</dd></div>
+                <div><dt className="font-semibold text-slate-900">Inspection and audits</dt><dd className="mt-1 text-slate-600">Assessments against an agreed scope and criteria.</dd></div>
+                <div><dt className="font-semibold text-slate-900">Training</dt><dd className="mt-1 text-slate-600">Management systems awareness and internal auditor learning.</dd></div>
+              </dl>
+              <p className="mt-6 border-t border-slate-200 pt-6 text-sm leading-relaxed text-slate-600">The applicable certification body and accreditation scope are subject to confirmation for each service.</p>
             </div>
           </div>
         </div>

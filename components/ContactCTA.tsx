@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { RESPONSE_TIME } from '../data/enquiries';
 
 const ContactCTA: React.FC = () => {
   return (
@@ -24,8 +25,7 @@ const ContactCTA: React.FC = () => {
               Ready to discuss your next certification or training?
             </h2>
             <p className="text-lg text-blue-100 leading-relaxed mb-8">
-              Share a few details about your organisation and our team will
-              contact you within 24 hours to discuss your requirements.
+              Share a few details about your organisation and your requirements. {RESPONSE_TIME}
             </p>
 
             {/* Trust indicators */}
@@ -34,7 +34,7 @@ const ContactCTA: React.FC = () => {
                 <svg className="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-blue-100">24h Response Time</span>
+                <span className="text-sm text-blue-100">One business day response</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
@@ -50,7 +50,7 @@ const ContactCTA: React.FC = () => {
               to="/contact"
               className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#FF3B30] px-10 py-5 text-lg font-bold text-slate-900 shadow-2xl transition-all hover:scale-105 hover:shadow-orange-500/50"
             >
-              Submit an enquiry
+              Talk to an expert
               <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
