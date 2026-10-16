@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Services: React.FC = () => {
   const services = [
     {
+      id: 'certification',
       title: "Management Systems Certification",
       desc: "Independent certification of your management systems against recognised ISO standards, including 9001, 14001 and 45001.",
       icon: (
@@ -23,6 +24,7 @@ const Services: React.FC = () => {
       ),
     },
     {
+      id: 'inspection',
       title: "Inspection & Audits",
       desc: "On-site inspections and audits that surface risk, confirm compliance and provide clear, prioritised findings.",
       icon: (
@@ -42,6 +44,7 @@ const Services: React.FC = () => {
       ),
     },
     {
+      id: 'training',
       title: "Training & Awareness",
       desc: "Practical training for management systems, internal auditors and operational teams, tailored to your certification and compliance needs.",
       icon: (
@@ -100,6 +103,7 @@ const Services: React.FC = () => {
               <p className="flex-grow text-slate-600 leading-relaxed">
                 {service.desc}
               </p>
+              <Link to={`/services#${service.id}`} className="mt-5 font-semibold text-primary-700 underline underline-offset-4">Explore {service.title.toLowerCase()}</Link>
             </article>
           ))}
         </div>

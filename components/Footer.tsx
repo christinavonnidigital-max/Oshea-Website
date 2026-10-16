@@ -8,7 +8,7 @@ const Footer: React.FC = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
         {/* Brand Section */}
         <div className="space-y-4 lg:col-span-1">
-          <Logo compact className="mb-3" />
+          <Logo className="mb-3" />
           <p className="text-sm text-slate-600 leading-relaxed">
             Your Excellence in Execution.
           </p>
@@ -52,17 +52,17 @@ const Footer: React.FC = () => (
           <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Services</h4>
           <ul className="space-y-2.5 text-sm">
             <li>
-              <Link to="/services" className="text-slate-600 hover:text-blue-700 transition-colors">
+              <Link to="/services#certification" className="text-slate-600 hover:text-blue-700 transition-colors">
                 Management Systems Certification
               </Link>
             </li>
             <li>
-              <Link to="/services" className="text-slate-600 hover:text-blue-700 transition-colors">
+              <Link to="/services#inspection" className="text-slate-600 hover:text-blue-700 transition-colors">
                 Inspection & Audits
               </Link>
             </li>
             <li>
-              <Link to="/services" className="text-slate-600 hover:text-blue-700 transition-colors">
+              <Link to="/services#training" className="text-slate-600 hover:text-blue-700 transition-colors">
                 Training & Awareness
               </Link>
             </li>
@@ -109,8 +109,8 @@ const Footer: React.FC = () => (
             © {new Date().getFullYear()} O'Shea SA. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-xs text-slate-500">
-            <a href="#" className="hover:text-blue-700 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-blue-700 transition-colors">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-blue-700 transition-colors">Privacy notice</Link>
+            <Link to="/terms" className="hover:text-blue-700 transition-colors">Website information</Link>
           </div>
         </div>
       </div>
