@@ -44,7 +44,7 @@ const Team: React.FC = () => {
           <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl mb-4">
             Leadership and key contacts
           </h2>
-          <p className="text-slate-600 leading-relaxed max-w-3xl">
+          <p className="body-copy text-slate-600 leading-relaxed max-w-3xl">
             A focused team combining regional experience, technical expertise and financial oversight.
           </p>
         </div>
@@ -67,7 +67,7 @@ const Team: React.FC = () => {
                 </div>
               </div>
 
-              <p className="text-sm text-slate-600 leading-relaxed mb-4">
+              <p className="body-copy text-sm text-slate-600 leading-relaxed mb-4">
                 {member.description}
               </p>
 

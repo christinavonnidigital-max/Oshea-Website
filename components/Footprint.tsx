@@ -13,7 +13,7 @@ const Footprint: React.FC = () => (
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-slate-900 mb-6 leading-tight">
               Africa-wide coverage with local expertise
             </h2>
-            <p className="text-base text-slate-600 sm:text-lg leading-relaxed">
+            <p className="body-copy text-base text-slate-600 sm:text-lg leading-relaxed">
               We support organisations across South Africa, Namibia, Botswana, Zimbabwe, Zambia, Kenya, Ghana,
               Nigeria, Côte d'Ivoire and more, with local delivery and global recognition through TÜV NORD CERT
               cooperation.
@@ -23,8 +23,8 @@ const Footprint: React.FC = () => (
           <div className="grid grid-cols-2 gap-4 pt-4">
             <div className="rounded-lg bg-blue-50 p-5 border border-blue-100">
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">Coverage</p>
-              <p className="text-xl font-bold text-slate-900">Sub-Saharan Africa</p>
-              <p className="text-sm text-slate-600 mt-1">Discuss your location</p>
+              <p className="text-2xl font-bold text-slate-900">10+</p>
+              <p className="text-sm text-slate-600 mt-1">Countries</p>
             </div>
 
             <div className="rounded-lg bg-blue-50 p-5 border border-blue-100">

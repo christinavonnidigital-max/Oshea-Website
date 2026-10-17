@@ -71,7 +71,7 @@ const ServicesPage: React.FC = () => (
     <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-2xl font-bold text-slate-900">Choose your service</h2>
-        <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">Explore the requirements below, then send a service-specific enquiry. We confirm availability, scope, delivery arrangements and fees before you commit.</p>
+        <p className="body-copy mt-3 max-w-3xl text-slate-600 leading-relaxed">Explore the requirements below, then send a service-specific enquiry. We confirm availability, scope, delivery arrangements and fees before you commit.</p>
         <nav aria-label="Service sections" className="mt-6 flex flex-wrap gap-3">
           {services.map((service) => <Link key={service.id} to={`/services#${service.id}`} className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-primary-700 hover:bg-blue-50">{service.title}</Link>)}
         </nav>
@@ -83,7 +83,7 @@ const ServicesPage: React.FC = () => (
           <section id={service.id} key={service.id} aria-labelledby={`${service.id}-title`} className="scroll-mt-24 grid gap-8 py-12 lg:grid-cols-5 lg:gap-12 lg:py-16">
             <div className="lg:col-span-2">
               <h2 id={`${service.id}-title`} className="text-3xl font-bold tracking-tight text-slate-900">{service.title}</h2>
-              <p className="mt-4 text-slate-600 leading-relaxed">{service.description}</p>
+              <p className="body-copy mt-4 text-slate-600 leading-relaxed">{service.description}</p>
               <Link to={enquiryLink(service.id)} className="mt-6 inline-flex rounded-full bg-primary-700 px-6 py-3 font-semibold text-white hover:bg-primary-800">{service.action}</Link>
             </div>
             <div className="space-y-7 lg:col-span-3">
@@ -93,8 +93,8 @@ const ServicesPage: React.FC = () => (
                   {service.details.map(([title, detail]) => <div key={title} className="border-l-2 border-brand-accent pl-4"><dt className="font-semibold text-slate-900">{title}</dt><dd className="mt-1 text-slate-600 leading-relaxed">{detail}</dd></div>)}
                 </dl>
               </div>
-              <div><h3 className="text-lg font-bold text-slate-900">How it works</h3><p className="mt-2 text-slate-600 leading-relaxed">{service.process}</p></div>
-              <div><h3 className="text-lg font-bold text-slate-900">What to include in your enquiry</h3><p className="mt-2 text-slate-600 leading-relaxed">{service.preparation}</p></div>
+              <div><h3 className="text-lg font-bold text-slate-900">How it works</h3><p className="body-copy mt-2 text-slate-600 leading-relaxed">{service.process}</p></div>
+              <div><h3 className="text-lg font-bold text-slate-900">What to include in your enquiry</h3><p className="body-copy mt-2 text-slate-600 leading-relaxed">{service.preparation}</p></div>
             </div>
           </section>
         ))}
@@ -103,8 +103,8 @@ const ServicesPage: React.FC = () => (
     <section className="bg-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl rounded-xl border border-slate-200 p-6 sm:p-8">
         <h2 className="text-2xl font-bold text-slate-900">Certification body and accreditation scope</h2>
-        <p className="mt-3 max-w-3xl text-slate-600 leading-relaxed">O'Shea SA works in cooperation with TÜV NORD CERT GmbH. The certification body, applicable accreditation and covered activities must be confirmed for your specific standard and scope. Inspection and training services do not automatically carry the same accreditation as management systems certification.</p>
-        <Link to={enquiryLink('certification')} className="mt-4 inline-block font-semibold text-primary-700 underline underline-offset-4">Request the applicable accreditation certificate and scope</Link>
+        <p className="body-copy mt-3 max-w-3xl text-slate-600 leading-relaxed">O'Shea SA works in cooperation with TÜV NORD CERT GmbH to deliver accredited management systems certification. Contact us for certification and accreditation details relevant to your requirements.</p>
+        <Link to={enquiryLink('certification')} className="mt-5 inline-flex items-center justify-center rounded-full bg-primary-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-800">Request accreditation details</Link>
       </div>
     </section>
     <section className="bg-brand-dark px-4 py-12 text-white sm:px-6">

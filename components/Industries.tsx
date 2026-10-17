@@ -70,7 +70,7 @@ const Industries: React.FC = () => {
             <h2 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-slate-900">
               Tailored solutions for every industry.
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+            <p className="body-copy mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
               We provide ISO certification and compliance services across diverse industries, ensuring standards are met and exceeded.
             </p>
           </div>
@@ -88,7 +88,7 @@ const Industries: React.FC = () => {
               <h3 className="text-xl font-bold text-slate-900 mb-3">
                 {industry.title}
               </h3>
-              <p className="flex-grow text-slate-600 leading-relaxed">
+              <p className="body-copy flex-grow text-slate-600 leading-relaxed">
                 {industry.desc}
               </p>
             </article>

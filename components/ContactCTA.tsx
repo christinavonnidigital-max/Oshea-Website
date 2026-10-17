@@ -24,7 +24,7 @@ const ContactCTA: React.FC = () => {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-6 leading-tight">
               Ready to discuss your next certification or training?
             </h2>
-            <p className="text-lg text-blue-100 leading-relaxed mb-8">
+            <p className="body-copy text-lg text-blue-100 leading-relaxed mb-8">
               Share a few details about your organisation and your requirements. {RESPONSE_TIME}
             </p>
 

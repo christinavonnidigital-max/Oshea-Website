@@ -5,6 +5,7 @@ const Services: React.FC = () => {
   const services = [
     {
       id: 'certification',
+      action: 'Explore certification',
       title: "Management Systems Certification",
       desc: "Independent certification of your management systems against recognised ISO standards, including 9001, 14001 and 45001.",
       icon: (
@@ -25,6 +26,7 @@ const Services: React.FC = () => {
     },
     {
       id: 'inspection',
+      action: 'Explore inspections',
       title: "Inspection & Audits",
       desc: "On-site inspections and audits that surface risk, confirm compliance and provide clear, prioritised findings.",
       icon: (
@@ -45,6 +47,7 @@ const Services: React.FC = () => {
     },
     {
       id: 'training',
+      action: 'Explore training',
       title: "Training & Awareness",
       desc: "Practical training for management systems, internal auditors and operational teams, tailored to your certification and compliance needs.",
       icon: (
@@ -76,7 +79,7 @@ const Services: React.FC = () => {
             <h2 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-slate-900">
               ISO certification, inspection and training.
             </h2>
-            <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+            <p className="body-copy mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
               We support organisations through the full management systems lifecycle, from initial gap analysis to certification audits and ongoing surveillance.
             </p>
           </div>
@@ -88,11 +91,11 @@ const Services: React.FC = () => {
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3">
           {services.map((service, idx) => (
             <article
               key={idx}
-              className="group relative flex h-full flex-col rounded-xl bg-white p-8 border border-slate-200 transition-all duration-300 hover:shadow-lg hover:border-blue-200"
+              className="group relative flex h-full flex-col rounded-xl bg-white p-6 border border-slate-200 transition-all duration-300 hover:shadow-lg hover:border-blue-200"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 mb-5 transition-colors group-hover:bg-blue-100">
                 {service.icon}
@@ -100,10 +103,10 @@ const Services: React.FC = () => {
               <h3 className="text-xl font-bold text-slate-900 mb-3">
                 {service.title}
               </h3>
-              <p className="flex-grow text-slate-600 leading-relaxed">
+              <p className="body-copy flex-grow text-slate-600 leading-relaxed">
                 {service.desc}
               </p>
-              <Link to={`/services#${service.id}`} className="mt-5 font-semibold text-primary-700 underline underline-offset-4">Explore {service.title.toLowerCase()}</Link>
+              <Link to={`/services#${service.id}`} className="mt-5 inline-flex self-start items-center justify-center rounded-full border border-blue-200 bg-blue-50 px-5 py-2.5 text-sm font-semibold text-primary-700 transition hover:border-blue-300 hover:bg-blue-100">{service.action}</Link>
             </article>
           ))}
         </div>

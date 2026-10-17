@@ -29,3 +29,14 @@ textarea:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* Justify reading paragraphs on wider screens without stretching short labels. */
+@media (min-width: 640px) {
+  .body-copy {
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    text-wrap: pretty;
+  }
+}

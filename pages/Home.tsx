@@ -18,7 +18,7 @@ const Home: React.FC = () => {
         <title>O'Shea SA | ISO Certification, Inspection & Training in Sub-Saharan Africa</title>
         <meta
           name="description"
-          content="ISO certification, inspection, and training across Sub-Saharan Africa. Explore O'Shea SA's services and discuss your requirements."
+          content="Accredited ISO certification, inspection, and training across Sub-Saharan Africa. Trusted cooperation partner of TÜV NORD CERT GmbH."
         />
         <meta property="og:title" content="O'Shea SA | ISO Certification, Inspection & Training" />
         <meta

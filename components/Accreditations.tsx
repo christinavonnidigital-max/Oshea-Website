@@ -1,16 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const Accreditations: React.FC = () => (
-  <section className="border-b border-slate-200 bg-white">
-    <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-      <div className="max-w-3xl">
-        <h2 className="font-semibold text-slate-900">Confirm the accreditation scope for your service</h2>
-        <p className="mt-2 text-sm leading-relaxed text-slate-600">The certification body and applicable accreditation must be confirmed for the standard and activities in your quotation. Accreditation wording is subject to confirmation.</p>
+const logos = [
+  {
+    name: "DAkkS accreditation",
+    src: "/logos/dakks.png",
+  },
+  {
+    name: "IAF MLA member",
+    src: "/logos/iaf.png",
+  },
+  {
+    name: "ESYD accreditation",
+    src: "/logos/esyd.png",
+  },
+];
+
+const Accreditations: React.FC = () => {
+  return (
+    <section className="bg-white border-y border-slate-200">
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-600">
+            Accredited by leading bodies
+          </p>
+          <div className="grid w-full grid-cols-3 items-center justify-items-center gap-5 sm:w-auto sm:gap-8">
+            {logos.map((logo) => (
+              <img
+                key={logo.name}
+                src={logo.src}
+                alt={logo.name}
+                className="h-12 w-full max-w-[120px] object-contain sm:h-14 sm:w-auto sm:max-w-[160px]"
+                loading="lazy"
+                decoding="async"
+              />
+            ))}
+          </div>
+        </div>
       </div>
-      <Link to="/services#certification" className="shrink-0 font-semibold text-primary-700 underline underline-offset-4">Certification details</Link>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Accreditations;
