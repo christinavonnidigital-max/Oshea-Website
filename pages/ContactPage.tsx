@@ -78,7 +78,7 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
               <div><label htmlFor="message" className="mb-2 block text-sm font-semibold text-slate-700">How can we help? *</label><textarea id="message" name="message" rows={4} required maxLength={4000} placeholder="Include your standard or service, location and preferred dates." className={fieldClass + ' resize-y'} /></div>
-              <p className="text-sm leading-relaxed text-slate-600">Please include business enquiry details only. Read our <Link to="/privacy" className="font-semibold text-primary-700 underline underline-offset-4">privacy notice</Link> for how these details are handled.</p>
+              <p className="text-sm leading-relaxed text-slate-600">Please include business enquiry details only. Read our <Link to="/privacy" className="font-semibold text-primary-700 transition hover:text-primary-800">privacy notice</Link> for how these details are handled.</p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <button type="submit" name="action" value="email" disabled={copying} className="flex-1 rounded-lg bg-primary-700 px-5 py-3 font-semibold text-white transition hover:bg-primary-800 disabled:opacity-60">Prepare email enquiry</button>
                 <button type="submit" name="action" value="copy" disabled={copying} className="rounded-lg border border-primary-700 bg-white px-5 py-3 font-semibold text-primary-700 transition hover:bg-blue-50 disabled:opacity-60">{copying ? 'Copying…' : 'Copy enquiry'}</button>
@@ -92,10 +92,10 @@ const ContactPage: React.FC = () => {
           </div>
           <aside aria-label="Direct contact details" className="space-y-7 lg:col-span-2 lg:pt-3">
             <div><h2 className="text-2xl font-bold text-slate-900">Prefer to contact us directly?</h2><p className="mt-3 text-slate-600 leading-relaxed">{RESPONSE_TIME} For urgent enquiries, please call.</p></div>
-            <div><h3 className="font-bold text-slate-900">Email</h3><a href="mailto:info@oshea.co.za" className="mt-2 inline-block font-medium text-primary-700 underline underline-offset-4">info@oshea.co.za</a></div>
-            <div><h3 className="font-bold text-slate-900">Telephone</h3><a href="tel:+27102107715" className="mt-2 inline-block font-medium text-primary-700 underline underline-offset-4">+27 10 210 7715</a></div>
+            <div><h3 className="font-bold text-slate-900">Email</h3><a href="mailto:info@oshea.co.za" className="mt-2 inline-flex rounded-md px-1 py-0.5 font-semibold text-primary-700 transition hover:bg-blue-50 hover:text-primary-800">info@oshea.co.za</a></div>
+            <div><h3 className="font-bold text-slate-900">Telephone</h3><a href="tel:+27102107715" className="mt-2 inline-flex rounded-md px-1 py-0.5 font-semibold text-primary-700 transition hover:bg-blue-50 hover:text-primary-800">+27 10 210 7715</a></div>
             <div><h3 className="font-bold text-slate-900">Headquarters</h3><address className="mt-2 text-sm not-italic leading-relaxed text-slate-600">Unit RG0-002, Ground Floor<br />Roland Garros Building, The Campus<br />57 Sloane Street, Bryanston<br />South Africa</address></div>
-            <p className="border-t border-slate-200 pt-6 text-sm text-slate-600">In cooperation with <strong>TÜV NORD CERT GmbH</strong>. <Link to="/services#certification" className="text-primary-700 underline underline-offset-4">Discuss certification scope</Link>.</p>
+            <div className="border-t border-slate-200 pt-6"><p className="text-sm text-slate-600">In cooperation with <strong>TÜV NORD CERT GmbH</strong>.</p><Link to="/services#certification" className="mt-3 inline-flex items-center justify-center rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-primary-700 transition hover:border-blue-300 hover:bg-blue-100">Discuss certification scope</Link></div>
           </aside>
         </div>
       </section>

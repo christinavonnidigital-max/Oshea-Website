@@ -14,7 +14,7 @@ const PostLayout: React.FC<Props> = ({ title, description, date, readingMinutes,
     <section className="bg-white py-16 px-6">
       <div className="max-w-3xl mx-auto">
         <nav aria-label="Breadcrumb" className="text-sm mb-8">
-          <Link to="/insights" className="text-brand-blue hover:underline font-medium">Insights</Link>
+          <Link to="/insights" className="font-medium text-brand-blue transition hover:text-primary-800">Insights</Link>
           <span className="text-gray-400 mx-2"> › </span>
           <span className="text-gray-600 truncate">{title}</span>
         </nav>

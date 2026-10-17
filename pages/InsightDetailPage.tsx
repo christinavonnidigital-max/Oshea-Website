@@ -76,7 +76,7 @@ const InsightDetailPage: React.FC = () => {
         </div>
 
         <div className="pt-10">
-          <Link to="/insights" className="inline-flex items-center text-brand-blue font-semibold hover:underline">
+          <Link to="/insights" className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-5 py-2.5 font-semibold text-brand-blue transition hover:border-blue-300 hover:bg-blue-100">
             <span className="mr-2">-&gt;</span> Back to all insights
           </Link>
         </div>
