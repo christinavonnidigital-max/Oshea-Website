@@ -4,8 +4,14 @@ import { RESPONSE_TIME } from '../data/enquiries';
 
 const ContactCTA: React.FC = () => {
   return (
-    <section id="contact-cta" className="bg-[#0B1B2B] text-white">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+    <section id="contact-cta" className="relative overflow-hidden bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 text-white">
+      {/* Decorative background elements */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-0 right-0 h-96 w-96 translate-x-1/3 -translate-y-1/3 rounded-full bg-orange-500/10 blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 h-96 w-96 -translate-x-1/3 translate-y-1/3 rounded-full bg-blue-400/10 blur-3xl"></div>
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm mb-6">
@@ -42,7 +48,7 @@ const ContactCTA: React.FC = () => {
           <div className="flex justify-center lg:justify-end">
             <Link
               to="/contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-warm px-10 py-5 text-lg font-bold text-white transition-colors duration-200 hover:bg-[#E84E00] active:translate-y-px"
+              className="group inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#FF3B30] px-10 py-5 text-lg font-bold text-slate-900 shadow-2xl transition-all hover:scale-105 hover:shadow-orange-500/50"
             >
               Talk to an expert
               <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
