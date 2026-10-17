@@ -14,7 +14,7 @@ const PageHero: React.FC<PageHeroProps> = ({
   compact = false,
 }) => {
   return (
-    <div className={`relative bg-gray-900 ${compact ? 'py-8 sm:py-12' : 'py-24 sm:py-32'}`}>
+    <div className={`relative bg-[#0B1B2B] ${compact ? 'py-8 sm:py-12' : 'py-24 sm:py-32'}`}>
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={backgroundImage}
@@ -25,7 +25,7 @@ const PageHero: React.FC<PageHeroProps> = ({
           width="1400"
           height="900"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/90 to-brand-dark/90 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[#0B1B2B]/90" />
       </div>
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         <h1 className={`font-bold tracking-tight text-white ${compact ? 'text-3xl sm:text-4xl' : 'text-4xl sm:text-5xl md:text-6xl mb-6'}`}>

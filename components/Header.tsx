@@ -39,7 +39,7 @@ const Header: React.FC = () => {
 
           <Link
             to="/contact"
-            className="rounded-full bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#FF3B30] px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:brightness-110"
+            className="rounded-full bg-brand-warm px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#E84E00] active:translate-y-px"
           >
             Talk to an expert
           </Link>
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="inline-block text-center rounded-full bg-gradient-to-r from-[#FFC107] via-[#FD7E14] to-[#FF3B30] px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm"
+              className="inline-block rounded-full bg-brand-warm px-4 py-2 text-center text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#E84E00] active:translate-y-px"
             >
               Talk to an expert
             </Link>
