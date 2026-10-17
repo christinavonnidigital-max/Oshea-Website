@@ -30,13 +30,7 @@ textarea:focus-visible {
   }
 }
 
-/* Justify reading paragraphs on wider screens without stretching short labels. */
-@media (min-width: 640px) {
-  .body-copy {
-    text-align: justify;
-    text-align-last: left;
-    hyphens: auto;
-    hyphenate-limit-chars: 6 3 3;
-    text-wrap: pretty;
-  }
+/* Keep marketing copy left-aligned: narrow cards make justification create uneven gaps. */
+.body-copy {
+  text-wrap: pretty;
 }
