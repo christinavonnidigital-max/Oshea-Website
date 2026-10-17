@@ -93,18 +93,6 @@ const Team: React.FC = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <div className="inline-flex items-start gap-2 text-sm text-slate-600 bg-slate-100 rounded-lg px-4 py-3">
-            <svg className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <div className="text-left">
-              <p className="font-semibold text-slate-900 text-sm">Head Office</p>
-              <p className="text-xs">Unit RG0-002, Ground Floor, Roland Garros Building, The Campus, 57 Sloane Street, Bryanston, South Africa</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
