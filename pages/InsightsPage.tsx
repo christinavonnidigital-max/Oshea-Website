@@ -95,26 +95,15 @@ const InsightsPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="bg-brand-dark py-16 px-6 text-center text-white">
+      <section className="bg-brand-dark px-6 py-16 text-center text-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Stay Updated</h2>
+          <h2 className="mb-4 text-2xl font-bold md:text-3xl">Need guidance for your next assessment?</h2>
           <p className="text-blue-100 mb-8">
-            Subscribe to our newsletter for the latest industry insights and O'Shea SA news.
+            Tell us what you are working on and the O'Shea SA team can help identify the right next step.
           </p>
-          <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-            <input 
-              type="email" 
-              placeholder="Enter your email address" 
-              className="flex-1 px-6 py-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-brand-accent outline-none"
-              required
-            />
-            <button 
-              type="submit"
-              className="bg-brand-accent text-white font-bold px-8 py-3 rounded-lg hover:bg-orange-500 transition shadow-md"
-            >
-              Subscribe
-            </button>
-          </form>
+          <Link to="/contact?service=general" className="inline-flex rounded-full bg-brand-accent px-8 py-3 font-bold text-slate-950 transition hover:bg-orange-500">
+            Talk to an expert
+          </Link>
         </div>
       </section>
     </Layout>

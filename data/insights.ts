@@ -110,8 +110,6 @@ export const insights: Insight[] = [
     image:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1100&q=80",
     body: [
-      "Meta Description: Discover how ISO 9001 certification is evolving with digital tools, lean manufacturing, and data analytics. Learn practical strategies for modern quality management systems in manufacturing operations.",
-      "Keywords: ISO 9001 manufacturing, quality management system, ISO 9001 certification, continuous improvement, lean manufacturing, digital quality management, manufacturing efficiency, root cause analysis.",
       "Manufacturers embed continuous improvement loops tied to real-time production data. Link nonconformance handling to root causes with owners and due dates; pair ISO 9001 controls with lean practices like 5S and visual management."
     ],
   },
@@ -125,8 +123,6 @@ export const insights: Insight[] = [
     image:
       "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1100&q=80",
     body: [
-      "Meta Description: Learn how to verify your company's carbon footprint using GHG Protocol and ISO 14064 standards. Guide to Scope 1, 2, and 3 measurement, data collection, and third-party verification.",
-      "Keywords: carbon footprint verification, GHG Protocol, ISO 14064, Scope 1 emissions, Scope 2 emissions, Scope 3 emissions, greenhouse gas accounting, carbon emissions measurement, sustainability reporting, environmental impact assessment.",
       "Start with clear boundaries for Scope 1, 2, and material Scope 3. Document data sources and methods, use recognized protocols (GHG Protocol, ISO 14064), and keep an audit trail. Publish reduction plans tied to measurable projects like efficiency, renewables, and supplier engagement."
     ],
   },
